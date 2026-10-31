@@ -711,3 +711,12 @@ h1 em, h2 em, .sticker b, .stage .n, .quote .stars { background: none !important
 .final { background: #0e0f12 !important; }
 .proj .stage-wrap { background: #ecebe6; } .proj:hover .stage-wrap { background: #e6e5df; }
 .lost { border-image: none; border-left: 4px solid #2f5bff; }
+/* services */
+.svcs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+@media (max-width: 900px) { .svcs { grid-template-columns: 1fr; } }
+.svc { display: flex; flex-direction: column; gap: 10px; padding: 30px 28px; border-radius: 22px; background: #fff; border: 1px solid rgba(14,15,18,.08); box-shadow: var(--shadow-md); color: var(--text); transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease); }
+.svc:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: #2f5bff; }
+.svc h3 { margin: 0; font-size: 1.5rem; letter-spacing: -.03em; }
+.svc p { margin: 0; color: var(--text-dim); }
+.svc p.fine { font-size: .92rem; color: var(--text-faint); font-style: italic; }
+.svc .go { margin-top: auto; padding-top: 14px; font-weight: 700; color: #2f5bff; }

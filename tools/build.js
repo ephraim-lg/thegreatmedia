@@ -20,7 +20,7 @@ function layout(meta, body) {
   const title = meta.title, desc = meta.desc, slug = meta.slug;
   const canonical = slug === 'index' ? SITE + '/' : `${SITE}/${slug}`;
   const navLinks = NAV.map(([k, href, label]) => `<li><a href="${href}" data-nav="${k}">${label}</a></li>`).join('');
-  const drawerLinks = NAV.map(([k, href, label]) => `<a class="dl" href="${href}" data-nav="${k}">${label}</a>`).join('') + `<a class="dl" href="/faq" data-nav="faq">FAQ</a><a class="dl" href="/audit" data-nav="audit">Free Ad Audit</a>`;
+  const drawerLinks = NAV.map(([k, href, label]) => `<a class="dl" href="${href}" data-nav="${k}">${label}</a>`).join('') + `<a class="dl" href="/faq" data-nav="faq">FAQ</a><a class="dl" href="/#services" data-nav="services">Services</a>`;
   const sticky = meta.sticky === false ? '' : `<div class="sticky-cta" id="sticky-cta"><a class="btn btn-primary" href="/apply" data-place="sticky">Apply to Work With Us <span class="arrow">→</span></a></div>`;
   const jsonld = meta.jsonld ? `<script type="application/ld+json">${JSON.stringify(meta.jsonld)}</script>` : '';
   return `<!DOCTYPE html>
@@ -64,7 +64,7 @@ fbq('init','${PIXEL}');fbq('track','PageView');
     <a class="brand" href="/" aria-label="The Great Media — home"><span>The Great Media<small>Ads that sell</small></span></a>
     <nav aria-label="Primary"><ul class="nav-links">${navLinks}</ul></nav>
     <div class="nav-cta">
-      <a class="wa-quiet" href="/audit" data-place="nav-audit">Free audit</a>
+      <a class="wa-quiet" href="/#services" data-place="nav-services">Services</a>
       <a class="wa-quiet" href="${WA}" target="_blank" rel="noopener">${waIcon} WhatsApp</a>
       <a class="btn btn-primary" href="/apply" data-place="nav">Apply to Work With Us</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
