@@ -696,3 +696,18 @@ h2 { letter-spacing: -.035em; }
 .quote .stars { letter-spacing: 2px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .marquee-track span { color: rgba(14,15,18,.38); }
 .lost { border-image: var(--grad) 1; }
+
+/* ── no gradients, no purple: solid ink, white, one solid cobalt ── */
+:root { --grad: none; }
+.hero::after { display: none; }
+h1 em, h2 em, .sticker b, .stage .n, .quote .stars { background: none !important; -webkit-background-clip: border-box; background-clip: border-box; color: #2f5bff !important; }
+.hero-photo::before { display: none; }
+.hero-photo img { border: 0; box-shadow: var(--shadow-lg); }
+.btn-primary { background: #0e0f12; box-shadow: 0 10px 24px -14px rgba(14,15,18,.6); }
+.btn-primary:hover { background: #2f5bff; box-shadow: 0 12px 24px -14px rgba(47,91,255,.6); }
+.s-paper { background: #f5f4f0; }
+.plan.featured, .result-card { background: #0e0f12 !important; }
+.plan.featured .tag { background: #2f5bff; }
+.final { background: #0e0f12 !important; }
+.proj .stage-wrap { background: #ecebe6; } .proj:hover .stage-wrap { background: #e6e5df; }
+.lost { border-image: none; border-left: 4px solid #2f5bff; }
