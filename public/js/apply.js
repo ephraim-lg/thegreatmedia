@@ -18,8 +18,8 @@
 
   /* Step order per flow. "unsure" walks the full system flow so we learn the economics. */
   var FLOWS = {
-    system:  ['need', '1', '2', '3', '4', '5', '6', '7'],
-    website: ['need', '1', '2', 'web', '5', '6', '7']
+    system:  ['need', '1', '2', '6', '7'],   // trimmed 2026-11: 5 steps, keeps every field the score + fit gate use
+    website: ['need', '1', 'web', '6', '7']
   };
   var flow = 'system', order = FLOWS.system, idx = 0, started = false;
 
@@ -41,8 +41,8 @@
 
   /* Budget wording follows the flow: monthly management fee vs one-off project. */
   var BANDS = {
-    system:  { low: ['Under K10,000', 'Below our minimum — we’ll be honest about fit'], starter: ['K10,000 – K20,000', 'Growth tier'], growth: ['K20,000 – K50,000', 'Scale tier'], premium: ['K50,000 – K100,000', 'Scale / Custom'], elite: ['K100,000+', 'Custom — dedicated team'] },
-    website: { low: ['Under K7,500', 'Below our minimum — we’ll be honest about fit'], starter: ['K7,500 – K15,000', 'Landing page or small site'], growth: ['K15,000 – K35,000', 'Full business website'], premium: ['K35,000 – K75,000', 'Custom build or online store'], elite: ['K75,000+', 'Large custom platform'] }
+    system:  { low: ['Under K10,000', 'We’ll be honest about fit'], starter: ['K10,000 – K20,000', ''], growth: ['K20,000 – K50,000', ''], premium: ['K50,000 – K100,000', ''], elite: ['K100,000+', ''] },
+    website: { low: ['Under K7,500', 'We’ll be honest about fit'], starter: ['K7,500 – K15,000', 'Landing page or small site'], growth: ['K15,000 – K35,000', 'Full business website'], premium: ['K35,000 – K75,000', 'Custom build or online store'], elite: ['K75,000+', 'Large custom platform'] }
   };
   var BAND_LABEL = { system: {}, website: {} };
   Object.keys(BANDS).forEach(function (f) { Object.keys(BANDS[f]).forEach(function (k) { BAND_LABEL[f][k] = BANDS[f][k][0] + (f === 'system' ? '/mo' : ' one-off'); }); });
@@ -96,7 +96,6 @@
     },
     2: function () {
       if (!val('customer_value')) return fail('2', 'Choose roughly what one customer is worth to you.');
-      if (!val('revenue')) return fail('2', 'Choose a revenue range (or "Prefer not to say").');
       return true;
     },
     3: function () {
