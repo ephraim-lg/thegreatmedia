@@ -21,7 +21,7 @@ function layout(meta, body) {
   const title = meta.title, desc = meta.desc, slug = meta.slug;
   const canonical = slug === 'index' ? SITE + '/' : `${SITE}/${slug}`;
   const navLinks = NAV.map(([k, href, label]) => `<li><a href="${href}" data-nav="${k}">${label}</a></li>`).join('');
-  const drawerLinks = NAV.map(([k, href, label]) => `<a class="dl" href="${href}" data-nav="${k}">${label}</a>`).join('') + `<a class="dl" href="/faq" data-nav="faq">FAQ</a>`;
+  const drawerLinks = NAV.map(([k, href, label]) => `<a class="dl" href="${href}" data-nav="${k}">${label}</a>`).join('') + `<a class="dl" href="/faq" data-nav="faq">FAQ</a><a class="dl" href="/audit" data-nav="audit">Free Ad Audit</a>`;
   const sticky = meta.sticky === false ? '' : `<div class="sticky-cta" id="sticky-cta"><a class="btn btn-primary" href="/apply" data-place="sticky">Apply to Work With Us <span class="arrow">→</span></a></div>`;
   const jsonld = meta.jsonld ? `<script type="application/ld+json">${JSON.stringify(meta.jsonld)}</script>` : '';
   return `<!DOCTYPE html>
@@ -48,7 +48,7 @@ function layout(meta, body) {
 <link rel="apple-touch-icon" href="/img/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/site.css?v=${meta.v}">
 ${jsonld}
 <!-- Meta Pixel — ${PIXEL} is the live pixel for this site -->
@@ -62,9 +62,10 @@ fbq('init','${PIXEL}');fbq('track','PageView');
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a class="brand" href="/" aria-label="The Great Media — home"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media<small>Customer Acquisition Systems</small></span></a>
+    <a class="brand" href="/" aria-label="The Great Media — home"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media<small>Ads that sell</small></span></a>
     <nav aria-label="Primary"><ul class="nav-links">${navLinks}</ul></nav>
     <div class="nav-cta">
+      <a class="wa-quiet" href="/audit" data-place="nav-audit">Free audit</a>
       <a class="wa-quiet" href="${WA}" target="_blank" rel="noopener">${waIcon} WhatsApp</a>
       <a class="btn btn-primary" href="/apply" data-place="nav">Apply to Work With Us</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
@@ -85,7 +86,7 @@ ${body}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="brand" href="/"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media<small>Customer Acquisition Systems</small></span></a>
+        <a class="brand" href="/"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media<small>Ads that sell</small></span></a>
         <p class="ident">We build and manage the system that turns advertising attention into qualified enquiries, appointments and sales — for businesses where one customer is worth real money.</p>
       </div>
       <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Results</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
