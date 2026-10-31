@@ -62,7 +62,7 @@ fbq('init','${PIXEL}');fbq('track','PageView');
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a class="brand" href="/" aria-label="The Great Media — home"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media<small>Ads that sell</small></span></a>
+    <a class="brand" href="/" aria-label="The Great Media — home"><span>The Great Media<small>Ads that sell</small></span></a>
     <nav aria-label="Primary"><ul class="nav-links">${navLinks}</ul></nav>
     <div class="nav-cta">
       <a class="wa-quiet" href="/audit" data-place="nav-audit">Free audit</a>
