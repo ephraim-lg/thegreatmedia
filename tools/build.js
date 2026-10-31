@@ -11,7 +11,6 @@ const NAV = [
   ['index', '/', 'Home'],
   ['how-it-works', '/how-it-works', 'How It Works'],
   ['results', '/results', 'Results'],
-  ['pricing', '/pricing', 'Pricing'],
   ['about', '/about', 'About'],
 ];
 
@@ -89,7 +88,7 @@ ${body}
         <a class="brand" href="/"><span>The Great Media<small>Ads that sell</small></span></a>
         <p class="ident">We build and manage the system that turns advertising attention into qualified enquiries, appointments and sales — for businesses where one customer is worth real money.</p>
       </div>
-      <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Results</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Results</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
       <div><h5>Start</h5><ul><li><a href="/apply">Apply to work with us</a></li><li><a href="${WA}" target="_blank" rel="noopener">WhatsApp +260 964 576 875</a></li></ul></div>
       <div><h5>Business identity</h5><ul><li>The Great Media Advertising Agency</li><li>Registered with PACRA · Zambia</li><li>Lusaka, Zambia · Est. 2023</li><li>Founder: Ephraim Banda</li></ul></div>
     </div>
