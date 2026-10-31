@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /leads.html
+Disallow: /leads
+
+Sitemap: https://thegreatmediazm.com/sitemap.xml

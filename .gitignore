@@ -1,0 +1,8 @@
+node_modules/
+# deploy leftovers: an expired Cloudflare upload token and per-deploy manifests
+tools/completion.jwt
+tools/manifest.json
+tools/hash-to-file.json
+tools/b64/
+# test screenshots
+tools/shots/

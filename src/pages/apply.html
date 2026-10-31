@@ -1,0 +1,307 @@
+<!--meta {"title":"Apply to Work With Us — The Great Media","desc":"Tell us about your business, your customer value, how you get enquiries today and your 90-day goal. If there's a fit, we'll show you exactly what we'd build.","sticky":false,"bodyClass":"page-apply","scripts":"<script src=\"/js/apply.js?v=2\"></script>"} -->
+
+<section class="page-hero s-dark" style="padding-bottom:0">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container">
+    <span class="eyebrow rv">Apply to work with us</span>
+    <h1 class="rv rv-d1" style="max-width:20ch">Tell us about your business. We'll tell you honestly if we can help.</h1>
+    <p class="lead rv rv-d2">A few short steps, about four minutes. This is the qualification stage — the same one we build for clients. Serious businesses find it easy; it's meant to be that way.</p>
+  </div>
+</section>
+
+<section class="s-dark pad-sm">
+  <div class="container">
+    <div class="apply-wrap">
+      <div>
+        <form id="apply-form" novalidate autocomplete="on">
+          <div class="progress"><span id="prog-label">Step 1 of 7</span><span id="prog-pct">0%</span></div>
+          <div class="bar"><i id="prog-fill"></i></div>
+
+          <!-- STEP 0 · NEED -->
+          <div class="step active" id="step-need" data-step="need">
+            <h2>What do you need?</h2>
+            <p class="why">Pick the closest. If you're not sure, choose the last option and we'll tell you honestly what makes sense.</p>
+            <div class="q">
+              <div class="opts" style="grid-template-columns:1fr" role="radiogroup" aria-label="What you need">
+                <label class="opt"><input type="radio" name="need" value="system"><span class="t">The full customer acquisition system</span><span class="s">Ads + landing page + qualification + follow-up + tracking, managed monthly. From K10,000/month.</span></label>
+                <label class="opt"><input type="radio" name="need" value="website"><span class="t">A website or landing page only</span><span class="s">A conversion-built site, one-off project. From K7,500. You run the traffic (or add the system later).</span></label>
+                <label class="opt"><input type="radio" name="need" value="unsure"><span class="t">Not sure — tell me what I need</span><span class="s">Answer the questions and we'll recommend the right route on the diagnostic call.</span></label>
+              </div>
+            </div>
+            <div class="step-error" id="err-need"></div>
+            <div class="step-nav"><button type="button" class="btn btn-primary" data-next="need">Continue <span class="arrow">→</span></button></div>
+          </div>
+
+          <!-- STEP 1 · BUSINESS -->
+          <div class="step" id="step-1" data-step="1">
+            <h2>What does your business sell?</h2>
+            <p class="why">So we can judge whether the system fits your market before we take a minute of your time.</p>
+            <div class="q">
+              <span class="lbl">Industry</span>
+              <div class="opts" role="radiogroup" aria-label="Industry">
+                <label class="opt"><input type="radio" name="industry" value="Construction & home improvement"><span class="t">Construction &amp; home improvement</span></label>
+                <label class="opt"><input type="radio" name="industry" value="Aluminium, windows & doors"><span class="t">Aluminium, windows &amp; doors</span></label>
+                <label class="opt"><input type="radio" name="industry" value="Automotive"><span class="t">Automotive</span></label>
+                <label class="opt"><input type="radio" name="industry" value="Real estate"><span class="t">Real estate</span></label>
+                <label class="opt"><input type="radio" name="industry" value="Professional services"><span class="t">Professional services</span></label>
+                <label class="opt"><input type="radio" name="industry" value="Solar & electrical"><span class="t">Solar &amp; electrical</span></label>
+                <label class="opt"><input type="radio" name="industry" value="Retail / e-commerce"><span class="t">Retail / e-commerce</span></label>
+                <label class="opt"><input type="radio" name="industry" value="Other"><span class="t">Other</span></label>
+              </div>
+            </div>
+            <div class="q"><label for="f-company">Company name</label><input class="field" id="f-company" name="company" placeholder="e.g. Cutrite Windows & Glass" required></div>
+            <div class="field-row">
+              <div class="q"><label for="f-location">Where are you based? <span class="hint">city, country</span></label><input class="field" id="f-location" name="location" placeholder="Lusaka, Zambia"></div>
+              <div class="q"><label for="f-website">Website or social page <span class="hint">optional</span></label><input class="field" id="f-website" name="website" placeholder="facebook.com/yourbusiness" inputmode="url"></div>
+            </div>
+            <div class="step-error" id="err-1"></div>
+            <div class="step-nav"><button type="button" class="btn btn-ghost" data-prev="1">Back</button><button type="button" class="btn btn-primary" data-next="1">Continue <span class="arrow">→</span></button></div>
+          </div>
+
+          <!-- STEP 2 · ECONOMICS -->
+          <div class="step" id="step-2" data-step="2">
+            <h2>What is one customer worth to you?</h2>
+            <p class="why">The system only pays for itself when a sale is worth real money. Rough figures are fine.</p>
+            <div class="q">
+              <span class="lbl">Average value of one customer <span class="hint">what a typical sale or project is worth</span></span>
+              <div class="opts two">
+                <label class="opt"><input type="radio" name="customer_value" value="Under K1,000"><span class="t">Under K1,000</span></label>
+                <label class="opt"><input type="radio" name="customer_value" value="K1,000 – K5,000"><span class="t">K1,000 – K5,000</span></label>
+                <label class="opt"><input type="radio" name="customer_value" value="K5,000 – K20,000"><span class="t">K5,000 – K20,000</span></label>
+                <label class="opt"><input type="radio" name="customer_value" value="K20,000 – K100,000"><span class="t">K20,000 – K100,000</span></label>
+                <label class="opt"><input type="radio" name="customer_value" value="K100,000+"><span class="t">K100,000+</span></label>
+              </div>
+            </div>
+            <div class="q">
+              <span class="lbl">Approximate monthly revenue</span>
+              <div class="opts two">
+                <label class="opt"><input type="radio" name="revenue" value="Under K20,000"><span class="t">Under K20,000</span></label>
+                <label class="opt"><input type="radio" name="revenue" value="K20,000 – K100,000"><span class="t">K20,000 – K100,000</span></label>
+                <label class="opt"><input type="radio" name="revenue" value="K100,000 – K500,000"><span class="t">K100,000 – K500,000</span></label>
+                <label class="opt"><input type="radio" name="revenue" value="K500,000+"><span class="t">K500,000+</span></label>
+                <label class="opt"><input type="radio" name="revenue" value="Prefer not to say"><span class="t">Prefer not to say</span></label>
+              </div>
+            </div>
+            <div class="step-error" id="err-2"></div>
+            <div class="step-nav"><button type="button" class="btn btn-ghost" data-prev="2">Back</button><button type="button" class="btn btn-primary" data-next="2">Continue <span class="arrow">→</span></button></div>
+          </div>
+
+          <!-- STEP 3 · ACQUISITION -->
+          <div class="step" id="step-3" data-step="3">
+            <h2>How do customers find you today?</h2>
+            <p class="why">We're looking for what already works and where the gaps are.</p>
+            <div class="q">
+              <span class="lbl">Current lead sources <span class="hint">choose all that apply</span></span>
+              <div class="opts">
+                <label class="opt"><input type="checkbox" name="sources" value="Referrals / word of mouth"><span class="t">Referrals / word of mouth</span></label>
+                <label class="opt"><input type="checkbox" name="sources" value="Walk-ins"><span class="t">Walk-ins</span></label>
+                <label class="opt"><input type="checkbox" name="sources" value="Facebook / Instagram"><span class="t">Facebook / Instagram</span></label>
+                <label class="opt"><input type="checkbox" name="sources" value="TikTok"><span class="t">TikTok</span></label>
+                <label class="opt"><input type="checkbox" name="sources" value="Google"><span class="t">Google</span></label>
+                <label class="opt"><input type="checkbox" name="sources" value="Another agency"><span class="t">Another agency</span></label>
+                <label class="opt"><input type="checkbox" name="sources" value="None yet"><span class="t">None yet</span></label>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="q">
+                <span class="lbl">Enquiries per month</span>
+                <div class="opts" style="grid-template-columns:1fr 1fr">
+                  <label class="opt"><input type="radio" name="enquiries" value="0 – 5"><span class="t">0 – 5</span></label>
+                  <label class="opt"><input type="radio" name="enquiries" value="5 – 20"><span class="t">5 – 20</span></label>
+                  <label class="opt"><input type="radio" name="enquiries" value="20 – 50"><span class="t">20 – 50</span></label>
+                  <label class="opt"><input type="radio" name="enquiries" value="50+"><span class="t">50+</span></label>
+                </div>
+              </div>
+              <div class="q">
+                <span class="lbl">Current monthly ad spend</span>
+                <div class="opts" style="grid-template-columns:1fr 1fr">
+                  <label class="opt"><input type="radio" name="ad_spend" value="K0"><span class="t">Nothing</span></label>
+                  <label class="opt"><input type="radio" name="ad_spend" value="Under K5,000"><span class="t">Under K5,000</span></label>
+                  <label class="opt"><input type="radio" name="ad_spend" value="K5,000 – K20,000"><span class="t">K5,000 – K20,000</span></label>
+                  <label class="opt"><input type="radio" name="ad_spend" value="K20,000+"><span class="t">K20,000+</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="step-error" id="err-3"></div>
+            <div class="step-nav"><button type="button" class="btn btn-ghost" data-prev="3">Back</button><button type="button" class="btn btn-primary" data-next="3">Continue <span class="arrow">→</span></button></div>
+          </div>
+
+          <!-- STEP 4 · BOTTLENECK -->
+          <div class="step" id="step-4" data-step="4">
+            <h2>What happens after someone enquires?</h2>
+            <p class="why">This is where most revenue leaks. Be honest — it's the most useful answer on this form.</p>
+            <div class="field-row">
+              <div class="q">
+                <span class="lbl">How fast do enquiries get a reply?</span>
+                <div class="opts" style="grid-template-columns:1fr">
+                  <label class="opt"><input type="radio" name="response_time" value="Within minutes"><span class="t">Within minutes</span></label>
+                  <label class="opt"><input type="radio" name="response_time" value="Same day"><span class="t">Same day</span></label>
+                  <label class="opt"><input type="radio" name="response_time" value="1–2 days"><span class="t">1–2 days</span></label>
+                  <label class="opt"><input type="radio" name="response_time" value="Often missed"><span class="t">Honestly, some get missed</span></label>
+                </div>
+              </div>
+              <div class="q">
+                <span class="lbl">Who follows up?</span>
+                <div class="opts" style="grid-template-columns:1fr">
+                  <label class="opt"><input type="radio" name="follow_up_owner" value="Me (the owner)"><span class="t">Me (the owner)</span></label>
+                  <label class="opt"><input type="radio" name="follow_up_owner" value="A salesperson / team"><span class="t">A salesperson / team</span></label>
+                  <label class="opt"><input type="radio" name="follow_up_owner" value="Nobody consistently"><span class="t">Nobody consistently</span></label>
+                  <label class="opt"><input type="radio" name="follow_up_owner" value="Want you to build this"><span class="t">I want you to build this</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="q"><label for="f-bottleneck">What's the biggest thing holding growth back right now? <span class="hint">one or two sentences</span></label><textarea class="field" id="f-bottleneck" name="bottleneck" placeholder="e.g. We get enquiries but most go quiet after we send the quote."></textarea></div>
+            <div class="step-error" id="err-4"></div>
+            <div class="step-nav"><button type="button" class="btn btn-ghost" data-prev="4">Back</button><button type="button" class="btn btn-primary" data-next="4">Continue <span class="arrow">→</span></button></div>
+          </div>
+
+          <!-- STEP W · WEBSITE SCOPE (website-only flow) -->
+          <div class="step" id="step-web" data-step="web">
+            <h2>What should the website do?</h2>
+            <p class="why">A site has one job. Tell us the job and roughly what it needs to contain.</p>
+            <div class="q">
+              <span class="lbl">Main job of the site</span>
+              <div class="opts two">
+                <label class="opt"><input type="radio" name="site_job" value="Generate enquiries / quotes"><span class="t">Generate enquiries &amp; quotes</span></label>
+                <label class="opt"><input type="radio" name="site_job" value="Take bookings"><span class="t">Take bookings</span></label>
+                <label class="opt"><input type="radio" name="site_job" value="Sell products online"><span class="t">Sell products online</span></label>
+                <label class="opt"><input type="radio" name="site_job" value="Credibility / corporate presence"><span class="t">Credibility &amp; corporate presence</span></label>
+              </div>
+            </div>
+            <div class="q"><label for="f-pages">What pages or features do you need? <span class="hint">rough is fine</span></label><textarea class="field" id="f-pages" name="site_pages" placeholder="e.g. Home, services, gallery of past jobs, quote form, WhatsApp button, Google Maps"></textarea></div>
+            <div class="q">
+              <span class="lbl">Do you have content ready? <span class="hint">photos, text, logo</span></span>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="site_content" value="Yes, most of it"><span class="t">Yes, most of it</span></label>
+                <label class="opt"><input type="radio" name="site_content" value="Some"><span class="t">Some</span></label>
+                <label class="opt"><input type="radio" name="site_content" value="No, need help"><span class="t">No — I need help with it</span></label>
+              </div>
+            </div>
+            <div class="step-error" id="err-web"></div>
+            <div class="step-nav"><button type="button" class="btn btn-ghost" data-prev="web">Back</button><button type="button" class="btn btn-primary" data-next="web">Continue <span class="arrow">→</span></button></div>
+          </div>
+
+          <!-- STEP 5 · GOAL -->
+          <div class="step" id="step-5" data-step="5">
+            <h2>What would a successful next 90 days look like?</h2>
+            <p class="why">Numbers help: enquiries per week, projects per month, revenue. "More customers" is a wish, not a goal — give us the real target.</p>
+            <div class="q"><label for="f-goal">Your 90-day goal</label><textarea class="field" id="f-goal" name="goal" placeholder="e.g. 20 qualified enquiries a month and 5 new installations, so we can hire a second team." minlength="12"></textarea></div>
+            <div class="step-error" id="err-5"></div>
+            <div class="step-nav"><button type="button" class="btn btn-ghost" data-prev="5">Back</button><button type="button" class="btn btn-primary" data-next="5">Continue <span class="arrow">→</span></button></div>
+          </div>
+
+          <!-- STEP 6 · BUDGET & TIMING -->
+          <div class="step" id="step-6" data-step="6">
+            <h2 id="budget-title">What's a realistic monthly budget for acquisition?</h2>
+            <p class="why" id="budget-why">This is the management fee. Ad spend is separate and paid directly to the platforms. Engagements start at K10,000/month — there's no benefit to picking a band you can't sustain for 90 days.</p>
+            <div class="q">
+              <span class="lbl" id="budget-lbl">Monthly management budget</span>
+              <div class="opts two">
+                <label class="opt"><input type="radio" name="budget" value="low"><span class="t" data-b="low">Under K10,000</span><span class="s" data-bs="low">Below our minimum — we'll be honest about fit</span></label>
+                <label class="opt"><input type="radio" name="budget" value="starter"><span class="t" data-b="starter">K10,000 – K20,000</span><span class="s" data-bs="starter">Growth tier</span></label>
+                <label class="opt"><input type="radio" name="budget" value="growth"><span class="t" data-b="growth">K20,000 – K50,000</span><span class="s" data-bs="growth">Scale tier</span></label>
+                <label class="opt"><input type="radio" name="budget" value="premium"><span class="t" data-b="premium">K50,000 – K100,000</span><span class="s" data-bs="premium">Scale / Custom</span></label>
+                <label class="opt"><input type="radio" name="budget" value="elite"><span class="t" data-b="elite">K100,000+</span><span class="s" data-bs="elite">Custom — dedicated team</span></label>
+              </div>
+            </div>
+            <div class="q">
+              <span class="lbl">When do you want to start?</span>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="timeline" value="now"><span class="t">Right now — this week</span><span class="s">Priority slot if one is open</span></label>
+                <label class="opt"><input type="radio" name="timeline" value="asap"><span class="t">This month</span></label>
+                <label class="opt"><input type="radio" name="timeline" value="month"><span class="t">In 1–3 months</span></label>
+                <label class="opt"><input type="radio" name="timeline" value="exploring"><span class="t">Just researching</span></label>
+              </div>
+            </div>
+            <div class="q">
+              <span class="lbl">If the plan makes sense on the call, can you decide and start within 7 days?</span>
+              <div class="opts" style="grid-template-columns:1fr">
+                <label class="opt"><input type="radio" name="readiness" value="yes"><span class="t">Yes — I'm the decision-maker and the budget is ready</span></label>
+                <label class="opt"><input type="radio" name="readiness" value="partner"><span class="t">I'd need to bring in a partner or director first</span><span class="s">Fine — bring them to the call</span></label>
+                <label class="opt"><input type="radio" name="readiness" value="notyet"><span class="t">Not yet — I'm gathering information</span></label>
+              </div>
+            </div>
+            <div class="step-error" id="err-6"></div>
+            <div class="step-nav"><button type="button" class="btn btn-ghost" data-prev="6">Back</button><button type="button" class="btn btn-primary" data-next="6">Continue <span class="arrow">→</span></button></div>
+          </div>
+
+          <!-- STEP 7 · CONTACT -->
+          <div class="step" id="step-7" data-step="7">
+            <h2>Where should we reach you?</h2>
+            <p class="why">Ephraim reviews every application personally and replies on WhatsApp.</p>
+            <div class="field-row">
+              <div class="q"><label for="f-name">Your name</label><input class="field" id="f-name" name="name" autocomplete="name" required></div>
+              <div class="q"><label for="f-role">Your role <span class="hint">optional</span></label><input class="field" id="f-role" name="role" placeholder="Owner, Director, Marketing…" autocomplete="organization-title"></div>
+            </div>
+            <div class="field-row">
+              <div class="q"><label for="f-phone">WhatsApp number</label><input class="field" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+260 97 000 0000" required></div>
+              <div class="q"><label for="f-email">Email <span class="hint">optional</span></label><input class="field" id="f-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@company.com"></div>
+            </div>
+            <div class="step-error" id="err-7"></div>
+            <div class="step-nav"><button type="button" class="btn btn-ghost" data-prev="7">Back</button><button type="button" class="btn btn-primary" id="submit-btn" data-next="7">Submit application <span class="arrow">→</span></button></div>
+            <p class="privacy-note">By submitting you agree to our <a href="/privacy" style="text-decoration:underline">privacy policy</a>. We never share your details. No spam, no mailing lists — one human reply.</p>
+          </div>
+        </form>
+
+        <!-- EVALUATING -->
+        <div class="result" id="evaluating">
+          <div class="eval-ring" aria-hidden="true"><i></i></div>
+          <h2>Reviewing your application…</h2>
+          <p class="lead">We check every application against the same criteria we use for paying clients.</p>
+          <ul class="eval-list">
+            <li data-eval="1">Customer value and margin</li>
+            <li data-eval="2">Enquiry flow and follow-up</li>
+            <li data-eval="3">Budget vs. system required</li>
+            <li data-eval="4">Timing and readiness to start</li>
+          </ul>
+        </div>
+
+        <!-- RESULT · QUALIFIED -->
+        <div class="result" id="result-fit">
+          <div class="icon ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h2>Application received. Here's exactly what happens next.</h2>
+          <p class="lead">Thanks, <span id="r-name">there</span>. On paper your business looks like a fit for the system. Ephraim will review the details personally.</p>
+          <ol class="next-steps">
+            <li><div><b>We review your application — usually today</b><span>Every application is read by a person. You'll get a reply on WhatsApp within a few hours on working days.</span></div></li>
+            <li><div><b>A 20-minute diagnostic call</b><span>We look at your numbers together: customer value, current enquiries, follow-up and what a working system would need.</span></div></li>
+            <li><div><b>If there's a fit, we show you the build</b><span>What we'd build, in what order, what it costs, and what ad spend we'd recommend. Clear enough to decide on.</span></div></li>
+          </ol>
+          <p>Want to skip the wait? Message us now — your application details are pre-filled.</p>
+          <a class="btn btn-primary btn-lg" id="wa-link" href="{{WA}}" target="_blank" rel="noopener">Open WhatsApp with Ephraim <span class="arrow">→</span></a>
+          <p class="privacy-note" id="save-warn" style="display:none">Our server didn't confirm the save — please do send the WhatsApp message so nothing is lost.</p>
+        </div>
+
+        <!-- RESULT · NOT A FIT -->
+        <div class="result" id="result-nofit">
+          <div class="icon no"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 8v5M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <h2>Thank you — and an honest answer.</h2>
+          <p class="lead">Based on what you've told us, <span id="nofit-reason">the system isn't the right fit for your business right now</span>. We'd rather say that than take your money for something that won't pay for itself.</p>
+          <ol class="next-steps">
+            <li><div><b>What it takes to work with us</b><span id="nofit-req">A customer worth K5,000 or more, a management budget of K10,000+ a month, ad spend on top, and a commitment of at least 90 days.</span></div></li>
+            <li><div><b>What to do in the meantime</b><span>Make sure every enquiry gets a reply within minutes, ask every new customer how they found you, and write down what one customer is worth to you. When the numbers change, come back.</span></div></li>
+            <li><div><b>We've kept your details</b><span>If circumstances change — bigger projects, a bigger budget — apply again and mention this application. We'll pick it up.</span></div></li>
+          </ol>
+          <a class="btn btn-ghost" href="/how-it-works">See how the system works</a>
+        </div>
+      </div>
+
+      <aside class="apply-side">
+        <div class="side-card rv">
+          <h4>What happens after you apply</h4>
+          <ol>
+            <li>Ephraim reads it — same working day.</li>
+            <li>WhatsApp reply to book a 20-minute diagnostic.</li>
+            <li>If there's a fit, you see exactly what we'd build and what it costs.</li>
+          </ol>
+          <div class="req"><b>To be a fit</b> you need a customer worth K5,000+, a management budget of K10,000+/month plus ad spend, and 90 days. Website only: from K7,500.</div>
+          <div class="req"><b>Capacity:</b> <span data-slots-line></span></div>
+        </div>
+        <div class="quote mt-lg rv rv-d1" style="background:var(--ink-2);border-color:var(--line)">
+          <div class="stars" style="color:var(--gold)">★★★★★</div>
+          <p style="color:var(--text)">"Within weeks our enquiries went through the roof. Ephraim and his team are the real deal."</p>
+          <div class="who" style="color:var(--text-dim)"><i>CW</i><span><b style="color:var(--text)">Cutrite Windows &amp; Glass</b>Windows &amp; glazing · Zambia</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
