@@ -86,7 +86,7 @@ ${body}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="brand" href="/"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media<small>Ads that sell</small></span></a>
+        <a class="brand" href="/"><span>The Great Media<small>Ads that sell</small></span></a>
         <p class="ident">We build and manage the system that turns advertising attention into qualified enquiries, appointments and sales — for businesses where one customer is worth real money.</p>
       </div>
       <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Results</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>

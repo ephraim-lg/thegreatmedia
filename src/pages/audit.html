@@ -16,24 +16,11 @@
       </div>
       <div class="rv rv-d2">
         <form class="audit-form" id="audit-form" novalidate>
-          <div class="row2">
-            <label>Your name<input name="name" autocomplete="name" required></label>
-            <label>Business name<input name="company" autocomplete="organization" required></label>
-          </div>
-          <div class="row2">
-            <label>WhatsApp / phone<input name="phone" type="tel" autocomplete="tel" placeholder="+44 7…, +1 …, +260 9…" required></label>
-            <label>Email<input name="email" type="email" autocomplete="email"></label>
-          </div>
-          <label>Link to audit <input name="link" placeholder="Website, Facebook page or ad library link" required></label>
-          <div class="row2">
-            <label>Where are you based?
-              <select name="country" required><option value="">Choose…</option><option>Zambia</option><option>United Kingdom</option><option>United States</option><option>South Africa</option><option>Other</option></select></label>
-            <label>Running ads right now?
-              <select name="ads" required><option value="">Choose…</option><option>Yes, proper campaigns</option><option>Just boosting posts</option><option>Not yet</option></select></label>
-          </div>
-          <label>What's one new customer worth to you?
-            <select name="value" required><option value="">Choose…</option><option>Under $100 / K2,000</option><option>$100–$1,000 / K2,000–K20,000</option><option>$1,000–$5,000 / K20,000–K100,000</option><option>$5,000+ / K100,000+</option></select></label>
-          <label>Anything we should know? <span style="font-weight:400;color:var(--text-faint)">(optional)</span><textarea name="notes" rows="3" placeholder="e.g. we get leads but nobody picks up, or our ads stopped working in March"></textarea></label>
+          <label>Your name<input name="name" autocomplete="name" required></label>
+          <label>WhatsApp number<input name="phone" type="tel" autocomplete="tel" placeholder="+260… or +44…" required></label>
+          <label>Your website, Facebook or Instagram page<input name="link" inputmode="url" placeholder="yourbusiness.com" required></label>
+          <label>Running ads right now?
+            <select name="ads" required><option value="">Choose…</option><option>Yes, proper campaigns</option><option>Just boosting posts</option><option>Not yet</option></select></label>
           <div class="err" id="audit-err" role="alert"></div>
           <button class="btn btn-primary btn-lg" type="submit" id="audit-btn">Send me my free audit <span class="arrow">→</span></button>
           <p class="fine">We'll only use your details to send the audit. No spam — we're too busy making videos.</p>

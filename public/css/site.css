@@ -620,3 +620,20 @@ h1 em, h2 em { color: var(--gold); }
 .lost span { color: var(--text-faint); }
 .stage::before, .stage::after { display: none !important; }
 .stage:hover { border-color: var(--gold); }
+/* project showcase: desktop in a browser frame + phone overlapping */
+.projects { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 40px; }
+@media (max-width: 900px) { .projects { grid-template-columns: 1fr; } }
+.proj { display: block; color: inherit; }
+.proj .stage-wrap { position: relative; background: #e9e7e1; border-radius: 26px; padding: 34px 34px 46px; overflow: hidden; transition: background .3s var(--ease); }
+.proj:hover .stage-wrap { background: #e2e6f5; }
+.proj .browser { width: 84%; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -30px rgba(14,15,18,.45); transition: transform .4s var(--ease); }
+.proj .browser .bar { height: 26px; display: flex; gap: 6px; align-items: center; padding: 0 11px; background: #f3f3f1; border-bottom: 1px solid rgba(14,15,18,.07); }
+.proj .browser .bar i { width: 8px; height: 8px; border-radius: 50%; background: #d4d2cc; }
+.proj .browser img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.proj .phone { position: absolute; right: 30px; bottom: 26px; width: 27%; border-radius: 26px; background: #0e0f12; padding: 7px; box-shadow: 0 30px 50px -20px rgba(14,15,18,.55); transition: transform .4s var(--ease); }
+.proj .phone img { display: block; width: 100%; aspect-ratio: 9 / 19.5; object-fit: cover; object-position: top; border-radius: 20px; }
+.proj:hover .browser { transform: translateY(-4px); } .proj:hover .phone { transform: translateY(-10px) rotate(-1.5deg); }
+.proj .cap { padding: 16px 4px 0; display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: baseline; }
+.proj .cap b { font-family: var(--font-display); font-size: 1.25rem; letter-spacing: -.02em; }
+.proj .cap span { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-paper-dim); }
+.proj .cap p { grid-column: 1 / -1; margin: 4px 0 0; color: var(--text-paper-dim); }

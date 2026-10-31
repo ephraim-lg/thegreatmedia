@@ -18,8 +18,8 @@
 
   /* Step order per flow. "unsure" walks the full system flow so we learn the economics. */
   var FLOWS = {
-    system:  ['need', '1', '2', '3', '4', '5', '6', '7'],
-    website: ['need', '1', '2', 'web', '5', '6', '7']
+    system:  ['need', '1', '2', '6', '7'],   // trimmed 2026-11: 5 steps, keeps every field the score + fit gate use
+    website: ['need', '1', 'web', '6', '7']
   };
   var flow = 'system', order = FLOWS.system, idx = 0, started = false;
 
@@ -96,7 +96,6 @@
     },
     2: function () {
       if (!val('customer_value')) return fail('2', 'Choose roughly what one customer is worth to you.');
-      if (!val('revenue')) return fail('2', 'Choose a revenue range (or "Prefer not to say").');
       return true;
     },
     3: function () {
