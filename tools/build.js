@@ -46,6 +46,15 @@ function crumbSchema(meta, canonical) {
 }
 
 function layout(meta, body) {
+  // Every page sits on the dark 3D backdrop. Home and Projects choreograph it themselves;
+  // all other pages get the quiet star field (shape 4) behind their content.
+  if (!(meta.bodyClass || '').includes('exp') && !meta.light) {
+    meta.bodyClass = ((meta.bodyClass || '') + ' exp').trim();
+    meta.bodyAttr = 'data-exp-fixed="4"';
+    meta.head = (meta.head || '') + '<link rel="stylesheet" href="/css/exp.css?v=1">';
+    meta.scripts = (meta.scripts || '') + '<script type="module" src="/js/exp.js?v=1"></script>';
+    body = '<canvas id="exp-canvas" aria-hidden="true"></canvas>\n' + body;
+  }
   const title = meta.title, desc = meta.desc, slug = meta.slug;
   const canonical = slug === 'index' ? SITE + '/' : `${SITE}/${slug}`;
   const navLinks = NAV.map(([k, href, label]) => `<li><a href="${href}" data-nav="${k}">${label}</a></li>`).join('');
@@ -87,6 +96,7 @@ function layout(meta, body) {
 <link rel="stylesheet" href="/css/v3.css?v=${meta.v}">
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 ${preload}
+${(meta.head || '').replace(/\?v=\d+/g, '?v=' + meta.v)}
 ${jsonld}
 <!-- Meta Pixel — ${PIXEL} is the live pixel for this site -->
 <script>
@@ -95,7 +105,7 @@ fbq('init','${PIXEL}');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=${PIXEL}&ev=PageView&noscript=1"></noscript>
 </head>
-<body class="${meta.bodyClass || ''}">
+<body class="${meta.bodyClass || ''}"${meta.bodyAttr ? ' ' + meta.bodyAttr : ''}>
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="nav" id="nav">
   <div class="container nav-inner">
