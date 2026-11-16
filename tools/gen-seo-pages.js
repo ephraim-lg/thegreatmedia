@@ -192,11 +192,11 @@ pages['facebook-ads-zambia'] = service({
   steps: ['<strong>Diagnose.</strong> We look at your offer, your numbers and where enquiries leak today.', '<strong>Build.</strong> Campaigns, landing page, lead capture and follow-up, live in 21 working days from access.', '<strong>Launch.</strong> Ads go live with tracking in place from day one.', '<strong>Optimise.</strong> Weekly changes to creative, targeting and follow-up, based on numbers.', '<strong>Scale.</strong> Put more budget behind what is working.'],
   proofH2: 'Results from Facebook and Instagram campaigns we manage.', proof: [cutrite, janice],
   costH2: 'What do Facebook ads cost in Zambia?',
-  cost: ['There are two costs. <strong>Ad spend</strong> goes straight to Meta from your own ad account, and you set the budget. <strong>Management</strong> is a fixed monthly fee that covers strategy, creative, the landing page, follow-up, tracking and reporting.', 'On the free growth call we recommend a budget based on what one customer is worth to you, then send a clear proposal. <a class="link" href="/facebook-ads-cost-zambia">Read the budget guide</a>.'],
+  cost: ['There are two costs. <strong>Ad spend</strong> goes straight to Meta from your own ad account, and you set the budget. <strong>Management</strong> is a fixed monthly fee that covers strategy, creative, the landing page, follow-up, tracking and reporting.', 'If your application is accepted, we recommend a budget based on what one customer is worth to you, then send a clear proposal. <a class="link" href="/facebook-ads-cost-zambia">Read the budget guide</a>.'],
   faqH2: 'Facebook ads in Zambia: common questions.',
   faq: [
     ['Do Facebook ads work in Zambia?', 'Yes, when the offer is clear and enquiries are followed up quickly. Cutrite Windows &amp; Glass made K100,000+ in sales from enquiries our campaigns generated, and Janice Wigs sold 50+ wigs in two months.'],
-    ['How much should I spend on Facebook ads?', 'Enough to get clear data within weeks. The right number depends on what one customer is worth to you. Higher-value sales such as construction, real estate and vehicles usually justify more. We recommend a specific budget on the free growth call.'],
+    ['How much should I spend on Facebook ads?', 'Enough to get clear data within weeks. The right number depends on what one customer is worth to you. Higher-value sales such as construction, real estate and vehicles usually justify more. We recommend a specific budget once we have looked at your numbers.'],
     ['Can I just boost posts myself?', 'You can, and for awareness it is fine. Boosting is built to get reactions. Campaigns built in Ads Manager can be optimised for enquiries and sales, tested properly and tracked to revenue.'],
     ['How do I pay for Facebook ads from Zambia?', 'Ad spend is paid from your own ad account, directly to Meta, with your own card. You own the account and the data, and you can see every kwacha spent. Our fee is separate.'],
     ['How fast will I see results?', 'Campaigns go live within 21 working days of getting access. Enquiries usually start in the first days after launch, and the first month is about finding which audience, offer and creative work best. We ask for a 90-day commitment so there is time to optimise.'],
@@ -229,7 +229,7 @@ pages['google-ads-zambia'] = service({
   steps: ['<strong>Diagnose.</strong> We check how many people search for what you sell and what a customer is worth.', '<strong>Build.</strong> Account, campaigns, landing page and tracking, live in 21 working days from access.', '<strong>Launch.</strong> Ads go live on the searches most likely to become customers.', '<strong>Optimise.</strong> Weekly search-term reviews so the budget stops leaking to bad clicks.', '<strong>Scale.</strong> Expand to more keywords, towns and services.'],
   proofH2: 'The same system behind our client results.', proof: [cutrite, relay],
   costH2: 'What do Google Ads cost in Zambia?',
-  cost: ['You pay Google only when someone clicks your ad, from your own account. The right budget depends on how many people search for your service; we recommend a number on the free growth call. Management is a fixed monthly fee, set out in your proposal.'],
+  cost: ['You pay Google only when someone clicks your ad, from your own account. The right budget depends on how many people search for your service; we recommend a number once we have looked at your numbers. Management is a fixed monthly fee, set out in your proposal.'],
   faqH2: 'Google Ads in Zambia: common questions.',
   faq: [
     ['Do Google Ads work in Zambia?', 'Yes, for products and services people actively search for. In many Zambian industries few competitors advertise on Google yet. We check the search demand for your business before recommending it.'],
@@ -265,7 +265,7 @@ pages['tiktok-ads-zambia'] = service({
   steps: ['<strong>Diagnose.</strong> Your offer, your customer and whether TikTok is the right platform.', '<strong>Build.</strong> Video ads, campaign, landing page and follow-up, live in 21 working days from access.', '<strong>Launch.</strong> Ads go live with tracking from day one.', '<strong>Optimise.</strong> Fresh videos and audiences tested every week.', '<strong>Scale.</strong> More budget behind the videos that sell.'],
   proofH2: 'Social media ads that sold.', proof: [janice, cutrite],
   costH2: 'What do TikTok ads cost in Zambia?',
-  cost: ['Ad spend is paid directly to TikTok and you set the budget. Management is a fixed monthly fee, set out in your proposal after the free growth call.'],
+  cost: ['Ad spend is paid directly to TikTok and you set the budget. Management is a fixed monthly fee, set out in your proposal.'],
   faqH2: 'TikTok ads in Zambia: common questions.',
   faq: [
     ['Can you advertise on TikTok in Zambia?', 'Yes. Zambian businesses can run paid campaigns through TikTok Ads Manager and target people in Zambia by location, age and interests.'],
@@ -484,7 +484,7 @@ pages['services'] = `<!--meta ${JSON.stringify({ title: 'Digital Marketing Servi
       ['What does a digital marketing agency in Zambia do?', 'It plans and runs your online advertising and the assets around it. At The Great Media that means Facebook, Instagram, TikTok and Google ads, websites and landing pages, WhatsApp follow-up systems, and tracking that shows which advert produced which sale.'],
       ['Which service should I start with?', 'If you have no clear place to send customers, start with a website or landing page. If you have one and need more enquiries, start with Facebook and Instagram ads. We recommend the right starting point in the diagnostic.'],
       ['Do you work with businesses outside Lusaka?', 'Yes. We are based in Lusaka and work with businesses across Zambia, including the Copperbelt, and with clients outside the country. Everything is run remotely with weekly reporting.'],
-      ['How much do your services cost?', 'It depends on what your business needs, so we do not publish a price list. After the free growth call you get a clear proposal with a fixed fee.'],
+      ['How much do your services cost?', 'It depends on what your business needs, so we do not publish a price list. If your application is accepted, you get a clear proposal with a fixed fee.'],
     ])}
   </div>
 </section>
