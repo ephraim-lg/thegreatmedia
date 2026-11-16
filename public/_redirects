@@ -5,3 +5,5 @@
 /admin           /leads          301
 /admin.html      /leads          301
 /index.html      /               301
+/pricing         /apply          302
+/pricing.html    /apply          302

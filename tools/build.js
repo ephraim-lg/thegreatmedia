@@ -11,8 +11,7 @@ const NAV = [
   ['index', '/', 'Home'],
   ['services', '/services', 'Services'],
   ['how-it-works', '/how-it-works', 'How It Works'],
-  ['results', '/results', 'Results'],
-  ['pricing', '/pricing', 'Pricing'],
+  ['results', '/results', 'Our Work'],
   ['about', '/about', 'About'],
 ];
 
@@ -23,11 +22,11 @@ const ORG = {
   '@context': 'https://schema.org', '@type': ['ProfessionalService', 'LocalBusiness'], '@id': SITE + '/#org',
   name: 'The Great Media Advertising Agency', alternateName: 'The Great Media', url: SITE + '/',
   logo: SITE + '/img/logo.jpg', image: SITE + '/img/og.jpg',
-  description: 'Advertising and digital marketing agency in Lusaka, Zambia. Facebook, Instagram, TikTok and Google ads, website design, lead capture, follow-up and tracking, built as one customer acquisition system.',
+  description: 'Advertising agency in Lusaka, Zambia. We help businesses scale with Meta ads, custom-built systems (websites, stores, software) and AI that replies to and qualifies every enquiry.',
   telephone: '+260964576875', founder: { '@type': 'Person', name: 'Ephraim Banda' }, foundingDate: '2023',
   address: { '@type': 'PostalAddress', addressLocality: 'Lusaka', addressRegion: 'Lusaka Province', addressCountry: 'ZM' },
   areaServed: [{ '@type': 'Country', name: 'Zambia' }, { '@type': 'City', name: 'Lusaka' }],
-  priceRange: 'From K7,500', knowsAbout: ['Facebook advertising', 'Instagram advertising', 'Google Ads', 'TikTok advertising', 'Website design', 'Lead generation', 'Digital marketing'],
+  knowsAbout: ['Meta advertising', 'Artificial intelligence automation', 'Custom software development', 'Facebook advertising', 'Instagram advertising', 'Google Ads', 'TikTok advertising', 'Website design', 'Lead generation', 'Digital marketing'],
   contactPoint: { '@type': 'ContactPoint', telephone: '+260964576875', contactType: 'sales', availableLanguage: 'English', areaServed: 'ZM' },
   sameAs: ['https://www.facebook.com/profile.php?id=100089516337648', 'https://www.instagram.com/the.greatmedia', 'https://www.tiktok.com/@the.great.media3'],
 };
@@ -51,7 +50,7 @@ function layout(meta, body) {
   const canonical = slug === 'index' ? SITE + '/' : `${SITE}/${slug}`;
   const navLinks = NAV.map(([k, href, label]) => `<li><a href="${href}" data-nav="${k}">${label}</a></li>`).join('');
   const drawerLinks = NAV.map(([k, href, label]) => `<a class="dl" href="${href}" data-nav="${k}">${label}</a>`).join('') + `<a class="dl" href="/faq" data-nav="faq">FAQ</a>`;
-  const sticky = meta.sticky === false ? '' : `<div class="sticky-cta" id="sticky-cta"><a class="btn btn-primary" href="/apply" data-place="sticky">Apply to Work With Us <span class="arrow">→</span></a></div>`;
+  const sticky = meta.sticky === false ? '' : `<div class="sticky-cta" id="sticky-cta"><a class="btn btn-primary" href="/apply" data-place="sticky">Book a Free Growth Call <span class="arrow">→</span></a></div>`;
   const ld = [ORG, slug === 'index' ? { '@context': 'https://schema.org', '@type': 'WebSite', '@id': SITE + '/#site', url: SITE + '/', name: 'The Great Media', publisher: { '@id': SITE + '/#org' } } : null, meta.jsonld, crumbSchema(meta, canonical), meta.noindex ? null : faqSchema(body)].filter(Boolean);
   const jsonld = ld.map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join('\n');
   const preload = meta.preload ? `<link rel="preload" as="image" href="${meta.preload}" fetchpriority="high">` : '';
@@ -80,8 +79,9 @@ function layout(meta, body) {
 <link rel="apple-touch-icon" href="/img/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/site.css?v=${meta.v}">
+<link rel="stylesheet" href="/css/v3.css?v=${meta.v}">
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 ${preload}
 ${jsonld}
@@ -100,7 +100,7 @@ fbq('init','${PIXEL}');fbq('track','PageView');
     <nav aria-label="Primary"><ul class="nav-links">${navLinks}</ul></nav>
     <div class="nav-cta">
       <a class="wa-quiet" href="${WA}" target="_blank" rel="noopener">${waIcon} WhatsApp</a>
-      <a class="btn btn-primary" href="/apply" data-place="nav">Apply to Work With Us</a>
+      <a class="btn btn-primary" href="/apply" data-place="nav">Book a Free Growth Call</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -108,7 +108,7 @@ fbq('init','${PIXEL}');fbq('track','PageView');
 <div class="drawer" id="drawer">
   ${drawerLinks}
   <div class="drawer-foot">
-    <a class="btn btn-primary btn-lg" href="/apply" data-place="drawer">Apply to Work With Us <span class="arrow">→</span></a>
+    <a class="btn btn-primary btn-lg" href="/apply" data-place="drawer">Book a Free Growth Call <span class="arrow">→</span></a>
     <a class="btn btn-ghost" href="${WA}" target="_blank" rel="noopener">${waIcon}&nbsp; WhatsApp us</a>
   </div>
 </div>
@@ -119,12 +119,12 @@ ${body}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="brand" href="/"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media<small>Customer Acquisition Systems</small></span></a>
-        <p class="ident">Advertising and digital marketing agency in Lusaka, Zambia. We build and manage the system that turns advertising into qualified enquiries, appointments and sales.</p>
+        <a class="brand" href="/"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media</span></a>
+        <p class="ident">Advertising agency in Lusaka, Zambia. We help businesses scale with Meta ads, custom-built systems and AI.</p>
       </div>
-      <div><h5>Services</h5><ul><li><a href="/facebook-ads-zambia">Facebook &amp; Instagram ads</a></li><li><a href="/google-ads-zambia">Google Ads</a></li><li><a href="/tiktok-ads-zambia">TikTok ads</a></li><li><a href="/website-design-zambia">Website design</a></li><li><a href="/facebook-ads-cost-zambia">Guide: Facebook ads cost</a></li><li><a href="/website-cost-zambia">Guide: website cost</a></li></ul></div>
-      <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Results</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
-      <div><h5>Start</h5><ul><li><a href="/apply">Apply to work with us</a></li><li><a href="${WA}" target="_blank" rel="noopener">WhatsApp +260 964 576 875</a></li></ul></div>
+      <div><h5>Services</h5><ul><li><a href="/facebook-ads-zambia">Facebook &amp; Instagram ads</a></li><li><a href="/google-ads-zambia">Google Ads</a></li><li><a href="/tiktok-ads-zambia">TikTok ads</a></li><li><a href="/website-design-zambia">Website design</a></li><li><a href="/facebook-ads-cost-zambia">Guide: Facebook ads budget</a></li><li><a href="/website-cost-zambia">Guide: website cost</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Our work</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
+      <div><h5>Start</h5><ul><li><a href="/apply">Book a free growth call</a></li><li><a href="${WA}" target="_blank" rel="noopener">WhatsApp +260 964 576 875</a></li></ul></div>
       <div><h5>Business identity</h5><ul><li>The Great Media Advertising Agency</li><li>Registered with PACRA · Zambia</li><li>Lusaka, Zambia · Est. 2023</li><li>Founder: Ephraim Banda</li></ul></div>
     </div>
     <div class="footer-bottom">
@@ -157,7 +157,7 @@ for (const f of fs.readdirSync(SRC)) {
   count++;
 }
 // sitemap.xml: every indexable page, with the date its source last changed
-const PRIO = { index: '1.0', services: '0.9', 'facebook-ads-zambia': '0.9', 'google-ads-zambia': '0.9', 'tiktok-ads-zambia': '0.8', 'website-design-zambia': '0.9', 'how-it-works': '0.8', results: '0.8', pricing: '0.8', apply: '0.7', privacy: '0.2', terms: '0.2' };
+const PRIO = { index: '1.0', services: '0.9', 'facebook-ads-zambia': '0.9', 'google-ads-zambia': '0.9', 'tiktok-ads-zambia': '0.8', 'website-design-zambia': '0.9', 'how-it-works': '0.8', results: '0.8', apply: '0.7', privacy: '0.2', terms: '0.2' };
 const urls = [];
 for (const f of fs.readdirSync(SRC).sort()) {
   if (!f.endsWith('.html')) continue;

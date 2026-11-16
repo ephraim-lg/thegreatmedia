@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /* If nobody has updated the month, never show last month's count as if it were current. */
   var nowLabel = new Date().toLocaleString('en-GB', { month: 'long', year: 'numeric' });
   var stale = cap.month !== nowLabel;
-  var line = stale ? 'We onboard a maximum of ' + cap.max + ' new systems a month so every build gets done properly.'
+  var line = stale ? 'We take on a maximum of ' + cap.max + ' new clients a month, so every build gets done properly.'
     : cap.left > 0
     ? 'We onboard a maximum of ' + cap.max + ' new systems a month so every build gets done properly. ' + cap.month + ': ' + cap.left + ' of ' + cap.max + ' build slots still open.'
     : 'We onboard a maximum of ' + cap.max + ' new systems a month. ' + cap.month + ' is full — apply now for the next slot.';
@@ -129,6 +129,16 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
     a.addEventListener('click', function () { window.tgmTrack('Contact', { content_name: 'WhatsApp' }); });
+  });
+
+  /* Showcase filter (Our Work page) */
+  var show = document.querySelector('[data-show]');
+  document.querySelectorAll('[data-filter]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      document.querySelectorAll('[data-filter]').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      if (show) show.querySelectorAll('.x-card').forEach(function (c) { c.hidden = f !== 'all' && c.getAttribute('data-cat') !== f; c.classList.add('in'); });
+    });
   });
 
   /* Cookie notice — one line, dismissable, remembered */

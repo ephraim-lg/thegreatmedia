@@ -10,7 +10,7 @@ const SERVICES = [
   ['facebook-ads-zambia', 'Facebook &amp; Instagram ads', 'Campaigns on Facebook and Instagram that bring enquiries from people who can actually buy.'],
   ['google-ads-zambia', 'Google Ads', 'Show up when someone in Zambia searches for exactly what you sell.'],
   ['tiktok-ads-zambia', 'TikTok ads', 'Short video ads that turn views into enquiries and orders.'],
-  ['website-design-zambia', 'Website design', 'Websites and landing pages built to turn visitors into enquiries, from K7,500.'],
+  ['website-design-zambia', 'Website design', 'Websites, stores and software built to turn visitors into customers.'],
 ];
 const GUIDES = [
   ['facebook-ads-cost-zambia', 'How much do Facebook ads cost in Zambia?'],
@@ -35,8 +35,8 @@ const finalCta = (h, p) => `
     <span class="eyebrow rv" style="justify-content:center">Next step</span>
     <h2 class="rv rv-d1">${h}</h2>
     <p class="lead rv rv-d2" style="text-align:center">${p}</p>
-    <p class="rv rv-d3"><a class="btn btn-primary btn-lg" href="/apply" data-place="final">Apply to Work With Us ${arrow}</a></p>
-    <p class="cta-note rv rv-d4">Takes about 4 minutes. We reply on WhatsApp within a few hours, every working day. <span data-slots-line></span></p>
+    <p class="rv rv-d3"><a class="btn btn-primary btn-lg" href="/apply" data-place="final">Book a Free Growth Call ${arrow}</a></p>
+    <p class="cta-note rv rv-d4">Takes about 4 minutes to apply. We reply on WhatsApp within a few hours, every working day. <span data-slots-line></span></p>
   </div>
 </section>`;
 
@@ -55,7 +55,7 @@ function service(p) {
     <h1 class="rv rv-d1" style="max-width:19ch">${p.h1}</h1>
     <p class="lead rv rv-d2" style="max-width:56ch">${p.lead}</p>
     <div class="cta-row rv rv-d3" data-hero-cta>
-      <a class="btn btn-primary btn-lg" href="${p.applyHref || '/apply'}" data-place="hero">${p.cta || 'Apply to Work With Us'} ${arrow}</a>
+      <a class="btn btn-primary btn-lg" href="${p.applyHref || '/apply'}" data-place="hero">${p.cta || 'Book a Free Growth Call'} ${arrow}</a>
       <a class="btn btn-ghost btn-lg" href="{{WA}}" target="_blank" rel="noopener">Ask on WhatsApp</a>
     </div>
     <p class="cta-note rv rv-d4">${p.note}</p>
@@ -110,7 +110,7 @@ function service(p) {
     <span class="eyebrow rv">Cost</span>
     <h2 class="rv rv-d1">${p.costH2}</h2>
     ${p.cost.map(t => `<p class="rv rv-d2 muted" style="max-width:66ch">${t}</p>`).join('\n    ')}
-    <p class="rv rv-d3"><a class="link" href="/pricing">See full pricing ${arrow}</a></p>
+    <p class="rv rv-d3"><a class="link" href="/apply">Book a free growth call ${arrow}</a></p>
   </div>
 </section>
 
@@ -171,11 +171,11 @@ const pages = {};
 pages['facebook-ads-zambia'] = service({
   slug: 'facebook-ads-zambia', crumb: 'Facebook & Instagram ads', schemaName: 'Facebook and Instagram advertising management',
   title: 'Facebook & Instagram Ads Agency in Zambia | The Great Media',
-  desc: 'Facebook and Instagram ads management for Zambian businesses. We plan, build and run your campaigns, landing page and WhatsApp follow-up as one system. Based in Lusaka. From K10,000/month.',
+  desc: 'Facebook and Instagram ads management for Zambian businesses. We plan, build and run your campaigns, landing page and WhatsApp follow-up as one system. Based in Lusaka.',
   eyebrow: 'Facebook &amp; Instagram ads · Zambia',
   h1: 'Facebook ads in Zambia that bring <em>customers</em>, not just likes.',
   lead: 'We are a Lusaka advertising agency that plans, builds and manages Facebook and Instagram campaigns for Zambian businesses, then connects them to a landing page, WhatsApp follow-up and tracking, so enquiries turn into sales.',
-  note: 'Management from K10,000/month. Ad spend is separate and paid directly to Meta from your own ad account.',
+  note: 'Ad spend is paid directly to Meta from your own ad account, so you always own the data.',
   incH2: 'More than boosting posts.', incLead: 'A boosted post buys attention. A managed campaign buys enquiries from the right people, and a way to turn them into customers.',
   includes: [
     ['Strategy and offer', 'Who to reach, what to say and what to offer, based on what one customer is worth to you.'],
@@ -192,11 +192,11 @@ pages['facebook-ads-zambia'] = service({
   steps: ['<strong>Diagnose.</strong> We look at your offer, your numbers and where enquiries leak today.', '<strong>Build.</strong> Campaigns, landing page, lead capture and follow-up, live in 21 working days from access.', '<strong>Launch.</strong> Ads go live with tracking in place from day one.', '<strong>Optimise.</strong> Weekly changes to creative, targeting and follow-up, based on numbers.', '<strong>Scale.</strong> Put more budget behind what is working.'],
   proofH2: 'Results from Facebook and Instagram campaigns we manage.', proof: [cutrite, janice],
   costH2: 'What do Facebook ads cost in Zambia?',
-  cost: ['There are two costs. <strong>Ad spend</strong> goes straight to Meta from your own ad account: most of our clients start between K5,000 and K20,000 a month. <strong>Management</strong> starts at K10,000 a month on our Growth plan and covers strategy, creative, the landing page, follow-up, tracking and reporting.', 'We recommend a specific budget in the diagnostic, based on your customer value and how many customers you can serve. <a class="link" href="/facebook-ads-cost-zambia">Read the full cost guide</a>.'],
+  cost: ['There are two costs. <strong>Ad spend</strong> goes straight to Meta from your own ad account, and you set the budget. <strong>Management</strong> is a fixed monthly fee that covers strategy, creative, the landing page, follow-up, tracking and reporting.', 'On the free growth call we recommend a budget based on what one customer is worth to you, then send a clear proposal. <a class="link" href="/facebook-ads-cost-zambia">Read the budget guide</a>.'],
   faqH2: 'Facebook ads in Zambia: common questions.',
   faq: [
     ['Do Facebook ads work in Zambia?', 'Yes, when the offer is clear and enquiries are followed up quickly. Cutrite Windows &amp; Glass made K100,000+ in sales from enquiries our campaigns generated, and Janice Wigs sold 50+ wigs in two months.'],
-    ['How much should I spend on Facebook ads?', 'Enough to get data quickly. For most businesses where one sale is worth K5,000 or more, that is K5,000 to K20,000 a month to start. Higher-value sales such as construction, real estate and vehicles usually justify more.'],
+    ['How much should I spend on Facebook ads?', 'Enough to get clear data within weeks. The right number depends on what one customer is worth to you. Higher-value sales such as construction, real estate and vehicles usually justify more. We recommend a specific budget on the free growth call.'],
     ['Can I just boost posts myself?', 'You can, and for awareness it is fine. Boosting is built to get reactions. Campaigns built in Ads Manager can be optimised for enquiries and sales, tested properly and tracked to revenue.'],
     ['How do I pay for Facebook ads from Zambia?', 'Ad spend is paid from your own ad account, directly to Meta, with your own card. You own the account and the data, and you can see every kwacha spent. Our fee is separate.'],
     ['How fast will I see results?', 'Campaigns go live within 21 working days of getting access. Enquiries usually start in the first days after launch, and the first month is about finding which audience, offer and creative work best. We ask for a 90-day commitment so there is time to optimise.'],
@@ -212,7 +212,7 @@ pages['google-ads-zambia'] = service({
   eyebrow: 'Google Ads · Zambia',
   h1: 'Google Ads in Zambia: be there when they <em>search</em>.',
   lead: 'When someone in Lusaka types "aluminium windows near me" or "solar installer Zambia", they are ready to buy. We put your business in front of that search, send the click to a page built to convert, and track it through to the sale.',
-  note: 'Google Ads is part of our Scale plan (from K20,000/month) or a custom scope. Ad spend is paid directly to Google from your own account.',
+  note: 'Ad spend is paid directly to Google from your own account. You only pay Google when someone clicks.',
   incH2: 'Search campaigns, built and managed.', incLead: 'Facebook ads find people who might want what you sell. Google Ads catches the people already looking for it.',
   includes: [
     ['Keyword research for Zambia', 'The real words your customers type, in your town and your trade.'],
@@ -229,7 +229,7 @@ pages['google-ads-zambia'] = service({
   steps: ['<strong>Diagnose.</strong> We check how many people search for what you sell and what a customer is worth.', '<strong>Build.</strong> Account, campaigns, landing page and tracking, live in 21 working days from access.', '<strong>Launch.</strong> Ads go live on the searches most likely to become customers.', '<strong>Optimise.</strong> Weekly search-term reviews so the budget stops leaking to bad clicks.', '<strong>Scale.</strong> Expand to more keywords, towns and services.'],
   proofH2: 'The same system behind our client results.', proof: [cutrite, relay],
   costH2: 'What do Google Ads cost in Zambia?',
-  cost: ['You pay Google only when someone clicks your ad, from your own account. The right budget depends on how many people search for your service; we recommend a number after the diagnostic. Management is included in the Scale plan from K20,000 a month, alongside your other channels, or quoted as a custom scope.'],
+  cost: ['You pay Google only when someone clicks your ad, from your own account. The right budget depends on how many people search for your service; we recommend a number on the free growth call. Management is a fixed monthly fee, set out in your proposal.'],
   faqH2: 'Google Ads in Zambia: common questions.',
   faq: [
     ['Do Google Ads work in Zambia?', 'Yes, for products and services people actively search for. In many Zambian industries few competitors advertise on Google yet. We check the search demand for your business before recommending it.'],
@@ -248,7 +248,7 @@ pages['tiktok-ads-zambia'] = service({
   eyebrow: 'TikTok ads · Zambia',
   h1: 'TikTok ads in Zambia that turn views into <em>enquiries</em>.',
   lead: 'More and more Zambian buyers discover products on TikTok. We plan and manage short video ad campaigns for your business and connect them to a landing page, WhatsApp follow-up and tracking.',
-  note: 'TikTok can be one of your platforms on the Growth plan (from K10,000/month). Ad spend is paid directly to TikTok.',
+  note: 'Ad spend is paid directly to TikTok from your own account.',
   incH2: 'Video ads, done properly.', incLead: 'Going viral is luck. Paid TikTok campaigns are a repeatable way to reach the right people every day.',
   includes: [
     ['Video ad concepts and scripts', 'Hooks and scripts written for your product and your customer.'],
@@ -265,7 +265,7 @@ pages['tiktok-ads-zambia'] = service({
   steps: ['<strong>Diagnose.</strong> Your offer, your customer and whether TikTok is the right platform.', '<strong>Build.</strong> Video ads, campaign, landing page and follow-up, live in 21 working days from access.', '<strong>Launch.</strong> Ads go live with tracking from day one.', '<strong>Optimise.</strong> Fresh videos and audiences tested every week.', '<strong>Scale.</strong> More budget behind the videos that sell.'],
   proofH2: 'Social media ads that sold.', proof: [janice, cutrite],
   costH2: 'What do TikTok ads cost in Zambia?',
-  cost: ['Ad spend is paid directly to TikTok; most of our clients start between K5,000 and K20,000 a month across their platforms. Management starts at K10,000 a month on the Growth plan, which covers one or two platforms.'],
+  cost: ['Ad spend is paid directly to TikTok and you set the budget. Management is a fixed monthly fee, set out in your proposal after the free growth call.'],
   faqH2: 'TikTok ads in Zambia: common questions.',
   faq: [
     ['Can you advertise on TikTok in Zambia?', 'Yes. Zambian businesses can run paid campaigns through TikTok Ads Manager and target people in Zambia by location, age and interests.'],
@@ -278,14 +278,13 @@ pages['tiktok-ads-zambia'] = service({
 
 pages['website-design-zambia'] = service({
   slug: 'website-design-zambia', crumb: 'Website design', schemaName: 'Website design and development',
-  title: 'Website Design in Zambia | Websites from K7,500 | The Great Media',
-  desc: 'Website design in Lusaka, Zambia. Fast, mobile-first websites, landing pages and online stores built to turn visitors into enquiries. One-off projects from K7,500.',
-  offer: { '@type': 'Offer', priceCurrency: 'ZMW', price: '7500', description: 'Website projects start from K7,500' },
+  title: 'Website Design in Zambia | Websites, Stores & Software | The Great Media',
+  desc: 'Website design in Lusaka, Zambia. Fast, mobile-first websites, landing pages and online stores built to turn visitors into enquiries. Fixed quote before work starts.',
   eyebrow: 'Website design · Zambia',
   h1: 'Website design in Zambia, built to bring you <em>enquiries</em>.',
-  lead: 'A website should do a job: make the right visitor call, WhatsApp or request a quote. We design and build fast, mobile-first websites, landing pages and online stores for Zambian businesses, from K7,500.',
-  cta: 'Apply for a Website', applyHref: '/apply?plan=website',
-  note: 'One-off website projects from K7,500. No monthly management fee required.',
+  lead: 'A website should do a job: make the right visitor call, WhatsApp or request a quote. We design and build fast, mobile-first websites, landing pages and online stores for Zambian businesses.',
+  cta: 'Get a Website Quote', applyHref: '/apply?plan=website',
+  note: 'A one-off project with a fixed quote. No monthly fee required.',
   incH2: 'Every site is built as a sales tool.', incLead: 'Most visitors in Zambia arrive on a phone, on mobile data. So the site has to load fast, say what you do in seconds and make the next step one tap.',
   includes: [
     ['Custom design', 'Designed around your brand and your customer. No recycled templates.'],
@@ -302,10 +301,10 @@ pages['website-design-zambia'] = service({
   steps: ['<strong>Brief.</strong> Your business, your customer and the one job the site must do.', '<strong>Structure and copy.</strong> Pages, sections and words agreed before design starts.', '<strong>Design and build.</strong> Mobile-first, fast and on brand.', '<strong>Review.</strong> You check it on your own phone and we refine it.', '<strong>Launch.</strong> Domain, hosting, tracking and a walkthrough of how to use it.'],
   proofH2: 'Websites we have built in Zambia.', proof: [relay, ['Online stores for Plumbit and Swt. Hair. Registration and payment funnels for the CLAZ Marathon and KCM Kopala ICR. Business sites for Kwendura, Ziva School and Hair by Claudine.', 'Sites we designed and built', 'Screenshots and live links are on the results page', 'GM']],
   costH2: 'How much does a website cost in Zambia?',
-  cost: ['Our website projects start from K7,500 for a focused, conversion-built site. Larger sites, online stores and booking systems cost more, depending on the number of pages and features. You get a fixed quote before work starts. <a class="link" href="/website-cost-zambia">Read the full website cost guide</a>.'],
+  cost: ['It depends on the number of pages and the features you need: a focused business site costs less than an online store or a booking system. You get a fixed quote before work starts, with no surprises after. <a class="link" href="/website-cost-zambia">Read the full website cost guide</a>.'],
   faqH2: 'Website design in Zambia: common questions.',
   faq: [
-    ['How much does a website cost in Zambia?', 'With us, from K7,500 for a focused business website. The final price depends on the number of pages, whether you need an online store or booking, and how much content we create for you. You get a fixed quote before we start.'],
+    ['How much does a website cost in Zambia?', 'The price depends on the number of pages, whether you need an online store or booking, and how much content we create for you. You get a fixed quote before we start.'],
     ['How long does it take to build a website?', 'Most business websites take two to four weeks from the day we have your content and access. Online stores and larger sites take longer.'],
     ['Do you build online stores?', 'Yes. We build online stores where customers can browse products, order and pay, as well as booking and registration sites for events.'],
     ['Will my website show up on Google?', 'We build every site with the SEO basics in place: fast loading, clear page titles, proper structure and a sitemap submitted to Google. Ranking for competitive searches takes time and content, and we will be honest about what to expect.'],
@@ -321,7 +320,7 @@ pages['facebook-ads-cost-zambia'] = guide({
   desc: 'What Facebook and Instagram ads really cost in Zambia: ad spend, agency management fees, how to set a budget from your customer value, and how to stop wasting money.',
   h1: 'How much do Facebook ads cost in Zambia?',
   lead: 'A plain guide to what you will actually pay: the ad spend, the management fee, and how to work out the right budget for your business.',
-  short: 'There is no fixed price. You choose your own budget and pay Meta directly. Most of our clients in Zambia start with K5,000 to K20,000 a month in ad spend. If you hire an agency, management is a separate fee: ours starts at K10,000 a month.',
+  short: 'There is no fixed price. You choose your own budget, pay Meta directly, and can change or stop it at any time. The right budget comes from what one customer is worth to you. If you hire an agency, management is a separate fee.',
   body: `
     <h2 class="rv">The two costs: ad spend and management</h2>
     <p class="rv"><strong>Ad spend</strong> is the money that goes to Meta (Facebook and Instagram) to show your ads. You set a daily or monthly budget and you can change or stop it at any time. It is paid with your own card from your own ad account.</p>
@@ -347,7 +346,7 @@ pages['facebook-ads-cost-zambia'] = guide({
     <p class="rv">If your ads bring enquiries for less than that, they are profitable and you can spend more. If they cost more, the offer, the ad or the follow-up needs fixing before the budget goes up. This is why a business selling K10,000 jobs can spend far more on ads than one selling K100 items.</p>
 
     <h2 class="rv">What we recommend to start</h2>
-    <p class="rv">For most businesses where one sale is worth K5,000 or more, we recommend K5,000 to K20,000 a month in ad spend to start. That is enough to test several audiences and ads and get clear data within weeks. Higher-value sales such as construction, real estate and vehicles usually justify more.</p>
+    <p class="rv">Start with enough to test several audiences and ads and get clear data within weeks. A budget that is too small takes months to tell you anything. Higher-value sales such as construction, real estate and vehicles usually justify more.</p>
 
     <h2 class="rv">Boosting posts vs proper campaigns</h2>
     <p class="rv">Boosting a post is the cheapest way to start, and it is built to get likes and reach. Campaigns built in Ads Manager can be aimed at enquiries and sales, tested properly and tracked. If you have boosted posts and got likes but no customers, this is usually why.</p>
@@ -360,11 +359,11 @@ pages['facebook-ads-cost-zambia'] = guide({
       <li>Nobody tracks which ad produced the sale, so the budget cannot move to what works.</li>
     </ul>
     <p class="rv">Fixing these three things often does more than doubling the ad budget. It is how <a href="/results">Cutrite Windows &amp; Glass turned Facebook enquiries into K100,000+ of sales</a>.</p>`,
-  ctaH: 'Want a budget worked out for your business?', ctaP: 'In our diagnostic we look at your customer value and capacity, and recommend a specific monthly ad spend.', ctaBtn: 'Apply to Work With Us',
+  ctaH: 'Want a budget worked out for your business?', ctaP: 'In our diagnostic we look at your customer value and capacity, and recommend a specific monthly ad spend.', ctaBtn: 'Book a Free Growth Call',
   faq: [
-    ['What is the minimum budget for Facebook ads in Zambia?', 'Meta lets you start with a very small daily budget. In practice, very small budgets take a long time to produce useful data. We recommend at least K5,000 a month for businesses with a K5,000+ sale.'],
+    ['What is the minimum budget for Facebook ads in Zambia?', 'Meta lets you start with a very small daily budget. In practice, very small budgets take a long time to produce useful data.'],
     ['How do I pay for Facebook ads in Zambia?', 'With a debit or credit card added to your own Meta ad account. You are charged by Meta directly.'],
-    ['Is ad spend included in an agency fee?', 'With us, no. Ad spend is paid by you directly to Meta so you own the account and can see every kwacha. Our management fee is separate and starts at K10,000 a month.'],
+    ['Is ad spend included in an agency fee?', 'With us, no. Ad spend is paid by you directly to Meta so you own the account and can see every kwacha. Our management fee is separate and fixed in your proposal.'],
     ['Are Instagram ads priced differently?', 'Instagram and Facebook ads are bought from the same Meta account and budget. Meta shows your ad on whichever placement gets the best result for the money.'],
   ],
   finalH: 'Ready to make ad spend predictable?', finalP: 'Tell us your numbers. If there is a fit, we will show you exactly what we would build and what it would cost.',
@@ -373,10 +372,10 @@ pages['facebook-ads-cost-zambia'] = guide({
 pages['website-cost-zambia'] = guide({
   slug: 'website-cost-zambia', crumb: 'Website cost in Zambia', date: '2026-11-16', dateText: 'November 2026', applyHref: '/apply?plan=website',
   title: 'How Much Does a Website Cost in Zambia? (2026 Guide) | The Great Media',
-  desc: 'What a business website costs in Zambia: what drives the price, the ongoing costs of a domain and hosting, what to ask a web designer, and our own prices from K7,500.',
+  desc: 'What a business website costs in Zambia: what drives the price, the ongoing costs of a domain and hosting, what to ask a web designer, and and how to get a fixed quote.',
   h1: 'How much does a website cost in Zambia?',
   lead: 'What you are really paying for, the costs people forget, and the questions to ask before you hire anyone.',
-  short: 'It depends on what the site has to do. Our own website projects start from K7,500 for a focused, conversion-built business site, and go up for larger sites, online stores and booking systems. On top of the build you pay yearly for a domain and hosting.',
+  short: 'It depends on what the site has to do. A focused business site costs less than an online store or a booking system. On top of the build you pay yearly for a domain and hosting. Always ask for a fixed quote before work starts.',
   body: `
     <h2 class="rv">What drives the price</h2>
     <ul class="rv">
@@ -409,9 +408,9 @@ pages['website-cost-zambia'] = guide({
       <li>What does it cost each year after launch?</li>
     </ol>
 
-    <h2 class="rv">What we charge</h2>
-    <p class="rv">Our website projects start from <strong>K7,500</strong>. That gets a focused, mobile-first site built to convert, with WhatsApp or quote buttons, SEO basics and tracking installed. Online stores, booking systems and larger sites are quoted by scope. You always get a fixed quote before work starts. See <a href="/website-design-zambia">website design in Zambia</a> for what is included and <a href="/results">examples of sites we have built</a>.</p>`,
-  ctaH: 'Want a fixed quote for your website?', ctaP: 'Tell us what the site needs to do. You will get an honest answer and a price before any work starts.', ctaBtn: 'Apply for a Website',
+    <h2 class="rv">How we quote</h2>
+    <p class="rv">We quote every project by scope. Every site is mobile-first and built to convert, with WhatsApp or quote buttons, SEO basics and tracking installed. You always get a fixed quote before work starts. See <a href="/website-design-zambia">website design in Zambia</a> for what is included and <a href="/results">examples of sites we have built</a>.</p>`,
+  ctaH: 'Want a fixed quote for your website?', ctaP: 'Tell us what the site needs to do. You will get an honest answer and a price before any work starts.', ctaBtn: 'Get a Website Quote',
   faq: [
     ['Can I get a website for free?', 'Free website builders exist and can work for a hobby or a very new business. They usually come with the builder\'s branding, limited features and an address that is not your own domain.'],
     ['Should I choose .com or .co.zm?', 'Either works. A .co.zm domain signals a Zambian business. A .com is more familiar internationally. Pick the one your customers will remember, and make sure it is registered in your name.'],
@@ -431,8 +430,8 @@ pages['services'] = `<!--meta ${JSON.stringify({ title: 'Digital Marketing Servi
     <h1 class="rv rv-d1" style="max-width:18ch">Digital marketing services for Zambian businesses.</h1>
     <p class="lead rv rv-d2" style="max-width:56ch">The Great Media is an advertising and digital marketing agency in Lusaka. We run the ads, build the pages and set up the follow-up, and connect them so advertising turns into paying customers.</p>
     <div class="cta-row rv rv-d3" data-hero-cta>
-      <a class="btn btn-primary btn-lg" href="/apply" data-place="hero">Apply to Work With Us ${arrow}</a>
-      <a class="btn btn-ghost btn-lg" href="/pricing">See pricing</a>
+      <a class="btn btn-primary btn-lg" href="/apply" data-place="hero">Book a Free Growth Call ${arrow}</a>
+      <a class="btn btn-ghost btn-lg" href="/results">See our work</a>
     </div>
   </div>
 </section>
@@ -485,7 +484,7 @@ pages['services'] = `<!--meta ${JSON.stringify({ title: 'Digital Marketing Servi
       ['What does a digital marketing agency in Zambia do?', 'It plans and runs your online advertising and the assets around it. At The Great Media that means Facebook, Instagram, TikTok and Google ads, websites and landing pages, WhatsApp follow-up systems, and tracking that shows which advert produced which sale.'],
       ['Which service should I start with?', 'If you have no clear place to send customers, start with a website or landing page. If you have one and need more enquiries, start with Facebook and Instagram ads. We recommend the right starting point in the diagnostic.'],
       ['Do you work with businesses outside Lusaka?', 'Yes. We are based in Lusaka and work with businesses across Zambia, including the Copperbelt, and with clients outside the country. Everything is run remotely with weekly reporting.'],
-      ['How much do your services cost?', 'Advertising management starts at K10,000 a month on the Growth plan, plus ad spend paid directly to the platforms. Website-only projects start from K7,500.'],
+      ['How much do your services cost?', 'It depends on what your business needs, so we do not publish a price list. After the free growth call you get a clear proposal with a fixed fee.'],
     ])}
   </div>
 </section>
