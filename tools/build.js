@@ -11,7 +11,7 @@ const NAV = [
   ['index', '/', 'Home'],
   ['services', '/services', 'Services'],
   ['how-it-works', '/how-it-works', 'How It Works'],
-  ['results', '/results', 'Our Work'],
+  ['results', '/results', 'Projects'],
   ['about', '/about', 'About'],
 ];
 
@@ -123,7 +123,7 @@ ${body}
         <p class="ident">Advertising agency in Lusaka, Zambia. We help businesses scale with Meta ads, custom-built systems and AI.</p>
       </div>
       <div><h5>Services</h5><ul><li><a href="/facebook-ads-zambia">Facebook &amp; Instagram ads</a></li><li><a href="/google-ads-zambia">Google Ads</a></li><li><a href="/tiktok-ads-zambia">TikTok ads</a></li><li><a href="/website-design-zambia">Website design</a></li><li><a href="/facebook-ads-cost-zambia">Guide: Facebook ads budget</a></li><li><a href="/website-cost-zambia">Guide: website cost</a></li></ul></div>
-      <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Our work</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Projects</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
       <div><h5>Start</h5><ul><li><a href="/apply">Book a free growth call</a></li><li><a href="${WA}" target="_blank" rel="noopener">WhatsApp +260 964 576 875</a></li></ul></div>
       <div><h5>Business identity</h5><ul><li>The Great Media Advertising Agency</li><li>Registered with PACRA · Zambia</li><li>Lusaka, Zambia · Est. 2023</li><li>Founder: Ephraim Banda</li></ul></div>
     </div>

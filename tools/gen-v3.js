@@ -33,6 +33,8 @@ const tabs = `<div class="x-tabs rv" role="group" aria-label="Filter projects">
       <button type="button" data-filter="demo" aria-pressed="false">Demos<small>${count('demo')}</small></button>
     </div>`;
 const reel = (slugs, rev) => `<div class="x-row${rev ? ' rev' : ''}">${[...slugs, ...slugs].map((x) => `<img src="/img/work/${x}-desktop.webp" alt="" loading="eager" width="1200" height="750">`).join('')}</div>`;
+const CLIENTS = ['Cutrite Windows &amp; Glass', 'Janice Wigs', 'Intercompany Relay', 'Plumbit', 'KCM Kopala ICR', 'Kwendura', 'Swt. Hair', 'CLAZ Marathon', 'Ziva School', 'Hair by Claudine', 'Mental Health Half Marathon'];
+const marquee = `<div class="marquee"><div class="marquee-track" aria-hidden="true">${[...CLIENTS, ...CLIENTS].map((c) => `<span>${c}</span>`).join('')}</div></div>`;
 const it = (t) => `<span class="x-it">${t}</span>`;
 
 const results = `<div class="x-results">
@@ -64,7 +66,7 @@ const end = `
 </section>`;
 
 // ───────────────────────── HOME ─────────────────────────
-const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Business Systems & AI Agency in Lusaka, Zambia', desc: 'We help businesses scale with Meta ads, custom-built systems and AI. More customers, faster replies and less chasing. Advertising agency in Lusaka, Zambia. Book a free growth call.', preload: '/img/work/schoolflow-desktop.webp' })} -->
+const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Business Systems & AI Agency in Lusaka, Zambia', desc: 'We help businesses scale with Meta ads, custom-built systems and AI. More customers, faster replies and less chasing. Advertising agency in Lusaka, Zambia. Book a free growth call.', })} -->
 
 <section class="x-hero" id="hero">
   <div class="x-wrap">
@@ -73,16 +75,15 @@ const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Bu
       <p class="x-lede">We help ambitious businesses scale with <b>Meta ads</b>, <b>custom-built systems</b> and <b>AI</b> that answers every enquiry in seconds. Based in Lusaka, working across Zambia and beyond.</p>
       <div class="x-hero-cta" data-hero-cta>
         <a class="x-btn" href="/apply" data-place="hero">${CTA} <i>→</i></a>
-        <a class="x-text" href="#work">See our work</a>
+        <a class="x-text" href="/results">See our projects</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="x-reel" aria-hidden="true">
-  ${reel(['schoolflow', 'plumbit', 'kwendura', 'gymflow', 'claz', 'ziva', 'tifa', 'icr'])}
-  ${reel(['sitolo', 'betrworkr', 'swthair', 'kopala', 'jci', 'claudine', 'mhhm'], true)}
-</div>
+<section class="x-names" aria-label="Businesses we have worked with">
+  ${marquee}
+</section>
 
 <section id="results">
   <div class="x-wrap">
@@ -121,23 +122,11 @@ const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Bu
   </div>
 </section>
 
-<section class="x-sec" id="work">
-  <div class="x-wrap">
-    <div class="x-split">
-      <h2 class="x-h2 rv">Don't take our word for it. ${it('Click around.')}</h2>
-      <p class="x-lede rv rv-d1">Every project here is live. Open it on your phone and judge for yourself.</p>
-    </div>
-    <div class="x-show">
-      ${WORK.slice(0, 6).map(card).join('\n      ')}
-    </div>
-    <div class="x-more rv"><a class="x-btn" href="/results">See all ${WORK.length} projects <i>→</i></a></div>
-  </div>
-</section>
-
-<section class="x-sec" id="proof" style="padding-top:0">
+<section class="x-sec" id="proof">
   <div class="x-wrap">
     <div class="x-split"><h2 class="x-h2 rv">Real businesses. ${it('Real numbers.')}</h2><span></span></div>
     ${results}
+    <p class="x-more rv" style="justify-content:flex-start"><a class="x-text" href="/results">See all ${WORK.length} projects we have built</a></p>
   </div>
 </section>
 

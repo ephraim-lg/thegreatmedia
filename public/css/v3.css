@@ -212,3 +212,9 @@ h1, h2, h3, h4 { color: inherit; }
 .x-end-foot p { margin: 0; color: rgba(245, 243, 238, .65); max-width: 46ch; }
 
 .portrait { background: #f1efe9; } .portrait .cap { background: rgba(14,15,18,.82); color: rgba(255,255,255,.75); border: 0; } .portrait .cap b { color: #fff; }
+
+/* Client names under the hero (text only) */
+.x-names { border-block: 1px solid var(--rule); padding: clamp(18px, 2.2vw, 28px) 0; overflow: hidden; margin-bottom: clamp(40px, 6vw, 90px); }
+.x-names .marquee-track span { font: 700 clamp(1.1rem, 1.8vw, 1.6rem)/1 var(--font-display); letter-spacing: -.03em; color: var(--text); opacity: 1; }
+.x-names .marquee-track span:nth-child(even) { font: 400 clamp(1.25rem, 2vw, 1.8rem)/1 var(--serif); font-style: italic; letter-spacing: -.01em; }
+.x-names .marquee { border: 0; padding: 0; mask-image: none; -webkit-mask-image: none; } .x-names .marquee-track span::after { content: '/'; font: 400 1rem var(--font); color: var(--text-faint); opacity: 1; }
