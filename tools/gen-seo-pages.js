@@ -35,7 +35,7 @@ const finalCta = (h, p) => `
     <span class="eyebrow rv" style="justify-content:center">Next step</span>
     <h2 class="rv rv-d1">${h}</h2>
     <p class="lead rv rv-d2" style="text-align:center">${p}</p>
-    <p class="rv rv-d3"><a class="btn btn-primary btn-lg" href="/apply" data-place="final">Book a Free Growth Call ${arrow}</a></p>
+    <p class="rv rv-d3"><a class="btn btn-primary btn-lg" href="/apply" data-place="final">Apply to Work With Us ${arrow}</a></p>
     <p class="cta-note rv rv-d4">Takes about 4 minutes to apply. We reply on WhatsApp within a few hours, every working day. <span data-slots-line></span></p>
   </div>
 </section>`;
@@ -55,7 +55,7 @@ function service(p) {
     <h1 class="rv rv-d1" style="max-width:19ch">${p.h1}</h1>
     <p class="lead rv rv-d2" style="max-width:56ch">${p.lead}</p>
     <div class="cta-row rv rv-d3" data-hero-cta>
-      <a class="btn btn-primary btn-lg" href="${p.applyHref || '/apply'}" data-place="hero">${p.cta || 'Book a Free Growth Call'} ${arrow}</a>
+      <a class="btn btn-primary btn-lg" href="${p.applyHref || '/apply'}" data-place="hero">${p.cta || 'Apply to Work With Us'} ${arrow}</a>
       <a class="btn btn-ghost btn-lg" href="{{WA}}" target="_blank" rel="noopener">Ask on WhatsApp</a>
     </div>
     <p class="cta-note rv rv-d4">${p.note}</p>
@@ -110,7 +110,7 @@ function service(p) {
     <span class="eyebrow rv">Cost</span>
     <h2 class="rv rv-d1">${p.costH2}</h2>
     ${p.cost.map(t => `<p class="rv rv-d2 muted" style="max-width:66ch">${t}</p>`).join('\n    ')}
-    <p class="rv rv-d3"><a class="link" href="/apply">Book a free growth call ${arrow}</a></p>
+    <p class="rv rv-d3"><a class="link" href="/apply">Apply to work with us ${arrow}</a></p>
   </div>
 </section>
 
@@ -359,7 +359,7 @@ pages['facebook-ads-cost-zambia'] = guide({
       <li>Nobody tracks which ad produced the sale, so the budget cannot move to what works.</li>
     </ul>
     <p class="rv">Fixing these three things often does more than doubling the ad budget. It is how <a href="/results">Cutrite Windows &amp; Glass turned Facebook enquiries into K100,000+ of sales</a>.</p>`,
-  ctaH: 'Want a budget worked out for your business?', ctaP: 'In our diagnostic we look at your customer value and capacity, and recommend a specific monthly ad spend.', ctaBtn: 'Book a Free Growth Call',
+  ctaH: 'Want a budget worked out for your business?', ctaP: 'In our diagnostic we look at your customer value and capacity, and recommend a specific monthly ad spend.', ctaBtn: 'Apply to Work With Us',
   faq: [
     ['What is the minimum budget for Facebook ads in Zambia?', 'Meta lets you start with a very small daily budget. In practice, very small budgets take a long time to produce useful data.'],
     ['How do I pay for Facebook ads in Zambia?', 'With a debit or credit card added to your own Meta ad account. You are charged by Meta directly.'],
@@ -430,7 +430,7 @@ pages['services'] = `<!--meta ${JSON.stringify({ title: 'Digital Marketing Servi
     <h1 class="rv rv-d1" style="max-width:18ch">Digital marketing services for Zambian businesses.</h1>
     <p class="lead rv rv-d2" style="max-width:56ch">The Great Media is an advertising and digital marketing agency in Lusaka. We run the ads, build the pages and set up the follow-up, and connect them so advertising turns into paying customers.</p>
     <div class="cta-row rv rv-d3" data-hero-cta>
-      <a class="btn btn-primary btn-lg" href="/apply" data-place="hero">Book a Free Growth Call ${arrow}</a>
+      <a class="btn btn-primary btn-lg" href="/apply" data-place="hero">Apply to Work With Us ${arrow}</a>
       <a class="btn btn-ghost btn-lg" href="/results">See our work</a>
     </div>
   </div>

@@ -4,7 +4,7 @@ const fs = require('fs'), path = require('path');
 const OUT = path.join(__dirname, '..', 'src', 'pages');
 const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
 const arrow = '<span class="arrow">→</span>';
-const CTA = 'Book a Free Growth Call';
+const CTA = 'Apply to Work With Us';
 
 // cat: web = client website, soft = software we built, demo = demo build
 const WORK = [
@@ -66,7 +66,7 @@ const end = `
 </section>`;
 
 // ───────────────────────── HOME ─────────────────────────
-const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Business Systems & AI Agency in Lusaka, Zambia', desc: 'We help businesses scale with Meta ads, custom-built systems and AI. More customers, faster replies and less chasing. Advertising agency in Lusaka, Zambia. Book a free growth call.', })} -->
+const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Business Systems & AI Agency in Lusaka, Zambia', desc: 'We help businesses scale with Meta ads, custom-built systems and AI. More customers, faster replies and less chasing. Advertising agency in Lusaka, Zambia. Apply to work with us.', })} -->
 
 <section class="x-hero" id="hero">
   <div class="x-wrap">

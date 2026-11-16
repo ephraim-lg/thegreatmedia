@@ -50,7 +50,7 @@ function layout(meta, body) {
   const canonical = slug === 'index' ? SITE + '/' : `${SITE}/${slug}`;
   const navLinks = NAV.map(([k, href, label]) => `<li><a href="${href}" data-nav="${k}">${label}</a></li>`).join('');
   const drawerLinks = NAV.map(([k, href, label]) => `<a class="dl" href="${href}" data-nav="${k}">${label}</a>`).join('') + `<a class="dl" href="/faq" data-nav="faq">FAQ</a>`;
-  const sticky = meta.sticky === false ? '' : `<div class="sticky-cta" id="sticky-cta"><a class="btn btn-primary" href="/apply" data-place="sticky">Book a Free Growth Call <span class="arrow">→</span></a></div>`;
+  const sticky = meta.sticky === false ? '' : `<div class="sticky-cta" id="sticky-cta"><a class="btn btn-primary" href="/apply" data-place="sticky">Apply to Work With Us <span class="arrow">→</span></a></div>`;
   const ld = [ORG, slug === 'index' ? { '@context': 'https://schema.org', '@type': 'WebSite', '@id': SITE + '/#site', url: SITE + '/', name: 'The Great Media', publisher: { '@id': SITE + '/#org' } } : null, meta.jsonld, crumbSchema(meta, canonical), meta.noindex ? null : faqSchema(body)].filter(Boolean);
   const jsonld = ld.map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join('\n');
   const preload = meta.preload ? `<link rel="preload" as="image" href="${meta.preload}" fetchpriority="high">` : '';
@@ -100,7 +100,7 @@ fbq('init','${PIXEL}');fbq('track','PageView');
     <nav aria-label="Primary"><ul class="nav-links">${navLinks}</ul></nav>
     <div class="nav-cta">
       <a class="wa-quiet" href="${WA}" target="_blank" rel="noopener">${waIcon} WhatsApp</a>
-      <a class="btn btn-primary" href="/apply" data-place="nav">Book a Free Growth Call</a>
+      <a class="btn btn-primary" href="/apply" data-place="nav">Apply to Work With Us</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -108,7 +108,7 @@ fbq('init','${PIXEL}');fbq('track','PageView');
 <div class="drawer" id="drawer">
   ${drawerLinks}
   <div class="drawer-foot">
-    <a class="btn btn-primary btn-lg" href="/apply" data-place="drawer">Book a Free Growth Call <span class="arrow">→</span></a>
+    <a class="btn btn-primary btn-lg" href="/apply" data-place="drawer">Apply to Work With Us <span class="arrow">→</span></a>
     <a class="btn btn-ghost" href="${WA}" target="_blank" rel="noopener">${waIcon}&nbsp; WhatsApp us</a>
   </div>
 </div>
@@ -124,7 +124,7 @@ ${body}
       </div>
       <div><h5>Services</h5><ul><li><a href="/facebook-ads-zambia">Facebook &amp; Instagram ads</a></li><li><a href="/google-ads-zambia">Google Ads</a></li><li><a href="/tiktok-ads-zambia">TikTok ads</a></li><li><a href="/website-design-zambia">Website design</a></li><li><a href="/facebook-ads-cost-zambia">Guide: Facebook ads budget</a></li><li><a href="/website-cost-zambia">Guide: website cost</a></li></ul></div>
       <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Projects</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
-      <div><h5>Start</h5><ul><li><a href="/apply">Book a free growth call</a></li><li><a href="${WA}" target="_blank" rel="noopener">WhatsApp +260 964 576 875</a></li></ul></div>
+      <div><h5>Start</h5><ul><li><a href="/apply">Apply to work with us</a></li><li><a href="${WA}" target="_blank" rel="noopener">WhatsApp +260 964 576 875</a></li></ul></div>
       <div><h5>Business identity</h5><ul><li>The Great Media Advertising Agency</li><li>Registered with PACRA · Zambia</li><li>Lusaka, Zambia · Est. 2023</li><li>Founder: Ephraim Banda</li></ul></div>
     </div>
     <div class="footer-bottom">
