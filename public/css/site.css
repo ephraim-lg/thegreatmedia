@@ -394,7 +394,8 @@ section { position: relative; }
 
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--line); padding: 64px 0 28px; background: var(--ink); color: var(--text-dim); font-size: .95rem; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; }
+.footer-grid { display: grid; grid-template-columns: 1.3fr 1.1fr .8fr 1fr 1.1fr; gap: 32px; }
+@media (max-width: 1100px) { .footer-grid { grid-template-columns: 1fr 1fr 1fr; } }
 @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer h5 { font: 700 .78rem var(--font); letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin: 0 0 14px; }
@@ -551,3 +552,45 @@ textarea.field { min-height: 120px; resize: vertical; line-height: 1.5; }
 
 /* No cookie bar on the application — nothing may cover a form control */
 .page-apply .cookie { display: none !important; }
+
+/* ── Search pages: service cards, guides, hero proof (added Nov 2026) ── */
+.hero-proof { list-style: none; margin: 26px 0 0; padding: 20px 0 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(3, auto); gap: 14px 34px; justify-content: start; }
+.hero-proof li { display: grid; gap: 2px; }
+.hero-proof b { font: 800 1.45rem/1.1 var(--font-display); letter-spacing: -.02em; color: var(--gold); }
+.hero-proof span { font-size: .86rem; color: var(--text-dim); max-width: 20ch; line-height: 1.35; }
+@media (max-width: 560px) { .hero-proof { grid-template-columns: 1fr 1fr; gap: 14px 18px; } .hero-proof b { font-size: 1.25rem; } }
+.svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.svc-grid.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1000px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .svc-grid, .svc-grid.two { grid-template-columns: 1fr; } }
+.svc { display: flex; flex-direction: column; gap: 10px; padding: 26px 24px; border-radius: var(--radius-lg); background: var(--paper-2); border: 1px solid var(--line-paper); color: var(--text-paper); transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease); }
+.svc:hover { transform: translateY(-3px); border-color: var(--gold-deep); box-shadow: 0 14px 34px -18px rgba(20, 18, 12, .45); }
+.svc h3 { margin: 0; font-size: 1.3rem; }
+.svc p { margin: 0; color: var(--text-paper-dim); font-size: .98rem; line-height: 1.5; flex: 1; }
+.svc .link { color: var(--gold-deep); font-size: .95rem; }
+.page-hero h1 em { font-style: normal; color: var(--gold); }
+.prose { font-size: 1.1rem; line-height: 1.65; }
+.prose h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 1.9em 0 .55em; }
+.prose p, .prose li { color: #2c2a26; max-width: 68ch; }
+.prose ul, .prose ol { padding-left: 1.2em; display: grid; gap: .5em; margin: 0 0 1.2em; }
+.prose a { color: var(--gold-deep); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.prose .answer { background: var(--ink); color: var(--text); border-radius: var(--radius-lg); padding: 26px 28px; border-left: 4px solid var(--gold); }
+.prose .answer b { font: 700 .8rem/1 var(--font); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.prose .answer p { color: var(--text); margin: 10px 0 0; font-size: 1.15rem; }
+.prose-cta { margin-top: 2.6em; padding: 30px 28px; border-radius: var(--radius-lg); background: var(--paper-2); border: 1px solid var(--line-paper); }
+.prose-cta h3 { margin: 0 0 8px; } .prose-cta p { margin: 0 0 18px; color: var(--text-paper-dim); }
+.prose-cta .btn { text-decoration: none; color: var(--gold-ink); }
+/* Phones: the six stage cards become compact rows (icon left) so the home page is a third shorter */
+@media (max-width: 560px) {
+  .stage { min-height: 0; padding: 20px 18px 20px 104px; display: block; }
+  .stage img { width: 84px; height: 84px; left: 10px; top: 50%; right: auto; transform: translateY(-50%); }
+  .stage:hover img { transform: translateY(-50%); }
+  .stage .n { position: static; display: block; margin-bottom: 6px; font-size: .7rem; }
+  .stage h3 { font-size: 1.2rem; margin-bottom: 4px; }
+  .stage p { font-size: .93rem; }
+}
+/* Six nav links: never wrap; tighten between tablet and desktop, hide the quiet WhatsApp link first */
+.nav-links a { white-space: nowrap; }
+.brand small { white-space: nowrap; }
+@media (max-width: 1340px) { .nav-links a { padding: 10px 10px; font-size: .9rem; } .nav-cta .wa-quiet { display: none; } }
+@media (max-width: 1180px) { .brand small { display: none; } }

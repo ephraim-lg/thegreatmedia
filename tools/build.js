@@ -9,13 +9,41 @@ const WA = 'https://wa.me/260964576875';
 
 const NAV = [
   ['index', '/', 'Home'],
+  ['services', '/services', 'Services'],
   ['how-it-works', '/how-it-works', 'How It Works'],
-  ['results', '/results', 'Results'],
-  ['pricing', '/pricing', 'Pricing'],
+  ['results', '/results', 'Projects'],
   ['about', '/about', 'About'],
 ];
 
 const waIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1c-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1s0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4 15 3.7 13.5 3.7 12c0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.7 8.2-8.3 8.2z"/></svg>`;
+
+// The business entity: printed on every page so Google ties each page to the same local business.
+const ORG = {
+  '@context': 'https://schema.org', '@type': ['ProfessionalService', 'LocalBusiness'], '@id': SITE + '/#org',
+  name: 'The Great Media Advertising Agency', alternateName: 'The Great Media', url: SITE + '/',
+  logo: SITE + '/img/logo.jpg', image: SITE + '/img/og.jpg',
+  description: 'Advertising agency in Lusaka, Zambia. We help businesses scale with Meta ads, custom-built systems (websites, stores, software) and AI that replies to and qualifies every enquiry.',
+  telephone: '+260964576875', founder: { '@type': 'Person', name: 'Ephraim Banda' }, foundingDate: '2023',
+  address: { '@type': 'PostalAddress', addressLocality: 'Lusaka', addressRegion: 'Lusaka Province', addressCountry: 'ZM' },
+  areaServed: [{ '@type': 'Country', name: 'Zambia' }, { '@type': 'City', name: 'Lusaka' }],
+  knowsAbout: ['Meta advertising', 'Artificial intelligence automation', 'Custom software development', 'Facebook advertising', 'Instagram advertising', 'Google Ads', 'TikTok advertising', 'Website design', 'Lead generation', 'Digital marketing'],
+  contactPoint: { '@type': 'ContactPoint', telephone: '+260964576875', contactType: 'sales', availableLanguage: 'English', areaServed: 'ZM' },
+  sameAs: ['https://www.facebook.com/profile.php?id=100089516337648', 'https://www.instagram.com/the.greatmedia', 'https://www.tiktok.com/@the.great.media3'],
+};
+const strip = (h) => h.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+// Every <details><summary>Q</summary><div class="a">A</div></details> on a page becomes FAQPage structured data.
+function faqSchema(body) {
+  const items = [...body.matchAll(/<summary>([\s\S]*?)<i>\+<\/i><\/summary><div class="a">([\s\S]*?)<\/div><\/details>/g)];
+  if (!items.length) return null;
+  return { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items.map((m) => ({ '@type': 'Question', name: strip(m[1]), acceptedAnswer: { '@type': 'Answer', text: strip(m[2]) } })) };
+}
+function crumbSchema(meta, canonical) {
+  if (meta.slug === 'index' || meta.noindex || !meta.crumb) return null;
+  const list = [['Home', SITE + '/']];
+  if (meta.parent) list.push([meta.parent[0], SITE + meta.parent[1]]);
+  list.push([meta.crumb, canonical]);
+  return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: list.map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })) };
+}
 
 function layout(meta, body) {
   const title = meta.title, desc = meta.desc, slug = meta.slug;
@@ -23,7 +51,9 @@ function layout(meta, body) {
   const navLinks = NAV.map(([k, href, label]) => `<li><a href="${href}" data-nav="${k}">${label}</a></li>`).join('');
   const drawerLinks = NAV.map(([k, href, label]) => `<a class="dl" href="${href}" data-nav="${k}">${label}</a>`).join('') + `<a class="dl" href="/faq" data-nav="faq">FAQ</a>`;
   const sticky = meta.sticky === false ? '' : `<div class="sticky-cta" id="sticky-cta"><a class="btn btn-primary" href="/apply" data-place="sticky">Apply to Work With Us <span class="arrow">→</span></a></div>`;
-  const jsonld = meta.jsonld ? `<script type="application/ld+json">${JSON.stringify(meta.jsonld)}</script>` : '';
+  const ld = [ORG, slug === 'index' ? { '@context': 'https://schema.org', '@type': 'WebSite', '@id': SITE + '/#site', url: SITE + '/', name: 'The Great Media', publisher: { '@id': SITE + '/#org' } } : null, meta.jsonld, crumbSchema(meta, canonical), meta.noindex ? null : faqSchema(body)].filter(Boolean);
+  const jsonld = ld.map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join('\n');
+  const preload = meta.preload ? `<link rel="preload" as="image" href="${meta.preload}" fetchpriority="high">` : '';
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,21 +65,28 @@ function layout(meta, body) {
 <meta name="robots" content="${meta.noindex ? 'noindex, nofollow' : 'index, follow'}">
 <meta name="theme-color" content="#0b0b0c">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_ZM">
 <meta property="og:site_name" content="The Great Media">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${desc}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${SITE}/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${desc}">
 <meta name="twitter:image" content="${SITE}/img/og.jpg">
-<link rel="icon" href="/img/logo.jpg">
-<link rel="apple-touch-icon" href="/img/logo.jpg">
+<link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/site.css?v=${meta.v}">
+<link rel="stylesheet" href="/css/v3.css?v=${meta.v}">
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+${preload}
 ${jsonld}
 <!-- Meta Pixel — ${PIXEL} is the live pixel for this site -->
 <script>
@@ -85,10 +122,11 @@ ${body}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="brand" href="/"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media<small>Customer Acquisition Systems</small></span></a>
-        <p class="ident">We build and manage the system that turns advertising attention into qualified enquiries, appointments and sales — for businesses where one customer is worth real money.</p>
+        <a class="brand" href="/"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media</span></a>
+        <p class="ident">Advertising agency in Lusaka, Zambia. We help businesses scale with Meta ads, custom-built systems and AI.</p>
       </div>
-      <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Results</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
+      <div><h5>Services</h5><ul><li><a href="/facebook-ads-zambia">Facebook &amp; Instagram ads</a></li><li><a href="/google-ads-zambia">Google Ads</a></li><li><a href="/tiktok-ads-zambia">TikTok ads</a></li><li><a href="/website-design-zambia">Website design</a></li><li><a href="/software-development-zambia">Custom software</a></li><li><a href="/ai-automation-zambia">AI automation</a></li><li><a href="/facebook-ads-cost-zambia">Guide: Facebook ads budget</a></li><li><a href="/website-cost-zambia">Guide: website cost</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Projects</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
       <div><h5>Start</h5><ul><li><a href="/apply">Apply to work with us</a></li><li><a href="${WA}" target="_blank" rel="noopener">WhatsApp +260 964 576 875</a></li></ul></div>
       <div><h5>Business identity</h5><ul><li>The Great Media Advertising Agency</li><li>Registered with PACRA · Zambia</li><li>Lusaka, Zambia · Est. 2023</li><li>Founder: Ephraim Banda</li></ul></div>
     </div>
@@ -121,4 +159,18 @@ for (const f of fs.readdirSync(SRC)) {
   fs.writeFileSync(path.join(OUT, f), layout(meta, body));
   count++;
 }
-console.log('built', count, 'pages, v=' + v);
+// sitemap.xml: every indexable page, with the date its source last changed
+const PRIO = { index: '1.0', services: '0.9', 'facebook-ads-zambia': '0.9', 'google-ads-zambia': '0.9', 'tiktok-ads-zambia': '0.8', 'website-design-zambia': '0.9', 'software-development-zambia': '0.9', 'ai-automation-zambia': '0.9', 'how-it-works': '0.8', results: '0.8', apply: '0.7', privacy: '0.2', terms: '0.2' };
+const urls = [];
+for (const f of fs.readdirSync(SRC).sort()) {
+  if (!f.endsWith('.html')) continue;
+  const raw = fs.readFileSync(path.join(SRC, f), 'utf8');
+  const meta = JSON.parse(raw.match(/^<!--meta\s*([\s\S]*?)-->/)[1]);
+  if (meta.noindex) continue;
+  const slug = f.replace('.html', '');
+  const lastmod = fs.statSync(path.join(SRC, f)).mtime.toISOString().slice(0, 10);
+  urls.push([PRIO[slug] || '0.6', `  <url><loc>${slug === 'index' ? SITE + '/' : SITE + '/' + slug}</loc><lastmod>${lastmod}</lastmod><priority>${PRIO[slug] || '0.6'}</priority></url>`]);
+}
+urls.sort((a, b) => b[0] - a[0]);
+fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => u[1]).join('\n')}\n</urlset>\n`);
+console.log('built', count, 'pages +', urls.length, 'sitemap urls, v=' + v);
