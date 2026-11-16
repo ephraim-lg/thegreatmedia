@@ -10,7 +10,9 @@ const SERVICES = [
   ['facebook-ads-zambia', 'Facebook &amp; Instagram ads', 'Campaigns on Facebook and Instagram that bring enquiries from people who can actually buy.'],
   ['google-ads-zambia', 'Google Ads', 'Show up when someone in Zambia searches for exactly what you sell.'],
   ['tiktok-ads-zambia', 'TikTok ads', 'Short video ads that turn views into enquiries and orders.'],
-  ['website-design-zambia', 'Website design', 'Websites, stores and software built to turn visitors into customers.'],
+  ['website-design-zambia', 'Website design', 'Websites and online stores built to turn visitors into customers.'],
+  ['software-development-zambia', 'Custom software', 'Systems built around how your business runs, like SchoolFlow, GymFlow and Sitolo.'],
+  ['ai-automation-zambia', 'AI automation', 'AI assistants that reply to every enquiry in seconds and qualify the lead for you.'],
 ];
 const GUIDES = [
   ['facebook-ads-cost-zambia', 'How much do Facebook ads cost in Zambia?'],
@@ -21,7 +23,7 @@ const related = (skip) => `
 <section class="s-paper pad-sm">
   <div class="container">
     <div class="section-head"><span class="eyebrow rv">More from The Great Media</span><h2 class="rv rv-d1">Everything connects into one system.</h2></div>
-    <div class="svc-grid">
+    <div class="svc-grid three">
       ${SERVICES.filter(s => s[0] !== skip).map(([slug, name, d], i) => `<a class="svc rv${i ? ' rv-d' + i : ''}" href="/${slug}"><h3>${name}</h3><p>${d}</p><span class="link">Learn more ${arrow}</span></a>`).join('\n      ')}
     </div>
     <p class="mt-lg rv">Guides: ${GUIDES.map(([s, t]) => `<a class="link" href="/${s}">${t}</a>`).join(' &nbsp;·&nbsp; ')}</p>
@@ -241,6 +243,78 @@ pages['google-ads-zambia'] = service({
   finalH: 'Want to be the first result your customers see?', finalP: 'Tell us what you sell and where. We will check the search demand and show you what we would build.',
 });
 
+pages['ai-automation-zambia'] = service({
+  slug: 'ai-automation-zambia', crumb: 'AI automation', schemaName: 'AI automation and AI assistants for business',
+  title: 'AI Automation for Businesses in Zambia | The Great Media',
+  desc: 'AI automation for Zambian businesses. AI assistants that reply to enquiries in seconds, qualify leads, answer common questions and follow up, built around how your business works. Lusaka-based agency.',
+  eyebrow: 'AI automation · Zambia',
+  h1: 'AI for your business that answers every enquiry in <em>seconds.</em>',
+  lead: 'Most enquiries are lost in the first hour, while everyone is busy. We build AI assistants for Zambian businesses that reply at once, ask the right questions and hand your team buyers who are ready to talk.',
+  note: 'Built around your business, your products and the way you already talk to customers.',
+  incH2: 'What an AI assistant does for you.', incLead: 'It does the repetitive part of sales and customer service, at any hour, so your people spend their time on customers who are ready.',
+  includes: [
+    ['Instant replies, day and night', 'Every enquiry gets an answer in seconds, including evenings and weekends.'],
+    ['Lead qualification', 'It asks what they need, when and where, so you know who is serious before you call.'],
+    ['Answers to common questions', 'Opening hours, services, locations and how to order, answered from your own information.'],
+    ['Hand-over to a person', 'Serious buyers and anything unusual go to your team, with the details already collected.'],
+    ['Follow-up that never forgets', 'Reminders and check-ins for people who went quiet after asking.'],
+    ['Booking and enquiry capture', 'Names, numbers and requests recorded in one place, not lost in a chat.'],
+    ['Trained on your business', 'It uses your offers, your tone and your rules. It says when it does not know.'],
+    ['Reports you can read', 'How many enquiries came in, what people asked, and how many became leads.'],
+  ],
+  whyEyebrow: 'Why it matters', whyH2: 'Speed wins the customer.',
+  whyBody: ['When someone messages three businesses, the first helpful reply usually gets the sale. A person cannot answer every message in seconds. An AI assistant can.', 'It works best next to advertising: the ads bring the enquiries, and the assistant makes sure none of them is wasted.'],
+  steps: ['<strong>Map.</strong> We list the questions your customers ask and what a good lead looks like.', '<strong>Build.</strong> We set up the assistant with your information, tone and rules.', '<strong>Test.</strong> You try to break it before any customer sees it.', '<strong>Launch.</strong> It goes live where your enquiries arrive.', '<strong>Improve.</strong> We review real conversations and tighten the answers.'],
+  proofH2: 'See one working.', proof: [['Betrworkr is an AI lead assistant we built as a demo: it replies to every hiring lead in seconds, qualifies the company and books the call. You can try it on the projects page.', 'Betrworkr demo', 'AI lead assistant', 'BW'], cutrite],
+  costH2: 'What does AI automation cost?',
+  cost: ['It depends on what the assistant has to do and where it runs. If your application is accepted, you get a clear proposal with a fixed fee before any work starts.'],
+  faqH2: 'AI for business in Zambia: common questions.',
+  faq: [
+    ['What can AI do for a small or medium business?', 'Reply to enquiries in seconds, answer common questions, collect the details of what a customer needs, qualify leads, follow up with people who went quiet and pass serious buyers to your team.'],
+    ['Will customers know they are talking to AI?', 'We recommend being open about it. Customers mostly care that they get a fast, correct answer and can reach a person when they need one.'],
+    ['What if the AI gives a wrong answer?', 'It is set up to answer only from your information and to hand over to a person when it is unsure. We test it with you before launch and review real conversations afterwards.'],
+    ['Do I need new software or a new phone number?', 'Usually not. We build around the channels your customers already use and tell you clearly if anything new is needed.'],
+    ['Does AI replace my staff?', 'No. It takes the repetitive first replies off their hands so they can spend time on customers who are ready to buy.'],
+  ],
+  finalH: 'Want every enquiry answered in seconds?', finalP: 'Tell us how enquiries reach you today. If there is a fit, we will show you exactly what we would build.',
+});
+
+pages['software-development-zambia'] = service({
+  slug: 'software-development-zambia', crumb: 'Custom software', schemaName: 'Custom software and web application development',
+  title: 'Custom Software Development in Zambia | The Great Media',
+  desc: 'Custom software development in Lusaka, Zambia. Web apps and business systems for schools, gyms and shops: payments, records and bookings in one place.',
+  eyebrow: 'Custom software · Zambia',
+  h1: 'Custom software for Zambian businesses, built around how you <em>work.</em>',
+  lead: 'When a business outgrows paper registers and spreadsheets, things start to slip: payments, stock, bookings, records. We design and build web apps and business systems that keep all of it in one place, on any phone.',
+  note: 'Built to work on phones and on slow internet, because that is how your team and customers use it.',
+  incH2: 'Software that fits the business.', incLead: 'Off-the-shelf tools make you change how you work. We build around the way you already run things, and remove the parts that waste time.',
+  includes: [
+    ['Design around your process', 'We map how work moves through your business before writing any code.'],
+    ['Works on any phone', 'Runs in the browser and can be added to the home screen like an app.'],
+    ['Payments and records', 'Who paid, who owes and what was sold, without a spreadsheet.'],
+    ['Bookings and registrations', 'Customers book, register and pay without calling you.'],
+    ['Dashboards and reports', 'The numbers an owner needs, on one screen.'],
+    ['Roles and permissions', 'Staff see what they need. Owners see everything.'],
+    ['Built for slow networks', 'Fast on mobile data, and able to keep working when the connection drops.'],
+    ['Support after launch', 'Fixes, improvements and new features as the business grows.'],
+  ],
+  whyEyebrow: 'How a build runs', whyH2: 'From a messy process to a working system.',
+  whyBody: ['You explain how the work is done today and where it goes wrong. We turn that into a simple system your team can learn in an afternoon.', 'You see working software early and often, not a long wait followed by a surprise.'],
+  steps: ['<strong>Understand.</strong> We learn the process, the people and the problems.', '<strong>Design.</strong> Screens and flows you can click through before the build.', '<strong>Build.</strong> In stages, with something working to test at each one.', '<strong>Launch.</strong> Set-up, data and a walkthrough for your team.', '<strong>Support.</strong> We stay on to fix, improve and extend it.'],
+  proofH2: 'Software we have built.', proof: [['SchoolFlow handles fees, attendance and results for schools, with a parent portal. GymFlow tracks memberships, expiries and renewals for gyms. Sitolo lets a shop sell, track stock and send receipts from a phone.', 'SchoolFlow, GymFlow and Sitolo', 'All three are live on the projects page', 'GM'], ['Registration and payment systems for the CLAZ Marathon and the KCM Kopala ICR, with automated confirmations for every entrant.', 'Event systems', 'Registration, payment and confirmation', 'EV']],
+  costH2: 'What does custom software cost?',
+  cost: ['It depends on the size of the system: the number of screens, users and features. If your application is accepted, we scope it with you and give a fixed quote before work starts.'],
+  faqH2: 'Custom software in Zambia: common questions.',
+  faq: [
+    ['How long does it take to build custom software?', 'A focused system usually takes a few weeks to a few months, depending on its size. We build in stages so you can use the first part while the rest is being finished.'],
+    ['Do I need an app from the app store?', 'Usually not. We build web apps that open in any phone browser and can be added to the home screen, which avoids app-store delays and works on older phones.'],
+    ['Will it work with poor internet?', 'We design for slow and unreliable connections. Where it matters, the system keeps working offline and syncs when the connection returns, as Sitolo does.'],
+    ['Who owns the software?', 'That is agreed in writing before the build starts, so there are no surprises later.'],
+    ['Can you improve a system we already have?', 'Often, yes. We look at what you have first and tell you honestly whether to improve it or replace it.'],
+  ],
+  finalH: 'Ready to replace the spreadsheet?', finalP: 'Tell us how your business runs today and where it slows down. If there is a fit, we will show you exactly what we would build.',
+});
+
 pages['tiktok-ads-zambia'] = service({
   slug: 'tiktok-ads-zambia', crumb: 'TikTok ads', schemaName: 'TikTok advertising management',
   title: 'TikTok Ads Agency in Zambia | The Great Media',
@@ -278,7 +352,7 @@ pages['tiktok-ads-zambia'] = service({
 
 pages['website-design-zambia'] = service({
   slug: 'website-design-zambia', crumb: 'Website design', schemaName: 'Website design and development',
-  title: 'Website Design in Zambia | Websites, Stores & Software | The Great Media',
+  title: 'Website Design in Zambia | The Great Media',
   desc: 'Website design in Lusaka, Zambia. Fast, mobile-first websites, landing pages and online stores built to turn visitors into enquiries. Fixed quote before work starts.',
   eyebrow: 'Website design · Zambia',
   h1: 'Website design in Zambia, built to bring you <em>enquiries</em>.',
@@ -316,7 +390,7 @@ pages['website-design-zambia'] = service({
 
 pages['facebook-ads-cost-zambia'] = guide({
   slug: 'facebook-ads-cost-zambia', crumb: 'Facebook ads cost in Zambia', date: '2026-11-16', dateText: 'November 2026',
-  title: 'How Much Do Facebook Ads Cost in Zambia? (2026 Guide) | The Great Media',
+  title: 'How Much Do Facebook Ads Cost in Zambia? | The Great Media',
   desc: 'What Facebook and Instagram ads really cost in Zambia: ad spend, agency management fees, how to set a budget from your customer value, and how to stop wasting money.',
   h1: 'How much do Facebook ads cost in Zambia?',
   lead: 'A plain guide to what you will actually pay: the ad spend, the management fee, and how to work out the right budget for your business.',
@@ -421,7 +495,7 @@ pages['website-cost-zambia'] = guide({
 });
 
 // Services hub
-pages['services'] = `<!--meta ${JSON.stringify({ title: 'Digital Marketing Services in Zambia | Ads, Websites & Follow-up | The Great Media', desc: 'Digital marketing agency in Lusaka, Zambia. Facebook and Instagram ads, Google Ads, TikTok ads and website design, connected into one system that turns enquiries into paying customers.', crumb: 'Services' })} -->
+pages['services'] = `<!--meta ${JSON.stringify({ title: 'Digital Marketing, Software & AI Services in Zambia | The Great Media', desc: 'Advertising agency in Lusaka, Zambia. Meta ads, Google Ads, TikTok ads, website design, custom software and AI automation, from one team that turns enquiries into paying customers.', crumb: 'Services' })} -->
 
 <section class="page-hero s-dark">
   <div class="hero-glow" aria-hidden="true"></div>
@@ -440,10 +514,10 @@ pages['services'] = `<!--meta ${JSON.stringify({ title: 'Digital Marketing Servi
   <div class="container">
     <div class="section-head">
       <span class="eyebrow rv">What we do</span>
-      <h2 class="rv rv-d1">Four services. One connected system.</h2>
+      <h2 class="rv rv-d1">Six services. One team.</h2>
       <p class="lead rv rv-d2">You can start with the part you need most. They work best together.</p>
     </div>
-    <div class="svc-grid">
+    <div class="svc-grid three">
       ${SERVICES.map(([slug, name, d], i) => `<a class="svc rv${i ? ' rv-d' + i : ''}" href="/${slug}"><h3>${name}</h3><p>${d}</p><span class="link">Learn more ${arrow}</span></a>`).join('\n      ')}
     </div>
   </div>

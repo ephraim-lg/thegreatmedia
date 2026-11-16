@@ -218,3 +218,5 @@ h1, h2, h3, h4 { color: inherit; }
 .x-names .marquee-track span { font: 700 clamp(1.1rem, 1.8vw, 1.6rem)/1 var(--font-display); letter-spacing: -.03em; color: var(--text); opacity: 1; }
 .x-names .marquee-track span:nth-child(even) { font: 400 clamp(1.25rem, 2vw, 1.8rem)/1 var(--serif); font-style: italic; letter-spacing: -.01em; }
 .x-names .marquee { border: 0; padding: 0; mask-image: none; -webkit-mask-image: none; } .x-names .marquee-track span::after { content: '/'; font: 400 1rem var(--font); color: var(--text-faint); opacity: 1; }
+
+.svc-grid.three { grid-template-columns: repeat(3, 1fr); } @media (max-width: 1000px) { .svc-grid.three { grid-template-columns: repeat(2, 1fr); } } @media (max-width: 560px) { .svc-grid.three { grid-template-columns: 1fr; } }

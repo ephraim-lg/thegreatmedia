@@ -71,12 +71,15 @@ function layout(meta, body) {
 <meta property="og:description" content="${desc}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${SITE}/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${desc}">
 <meta name="twitter:image" content="${SITE}/img/og.jpg">
-<link rel="icon" href="/img/logo.jpg">
-<link rel="apple-touch-icon" href="/img/logo.jpg">
+<link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -122,7 +125,7 @@ ${body}
         <a class="brand" href="/"><img src="/img/logo.jpg" alt="" width="36" height="36"><span>The Great Media</span></a>
         <p class="ident">Advertising agency in Lusaka, Zambia. We help businesses scale with Meta ads, custom-built systems and AI.</p>
       </div>
-      <div><h5>Services</h5><ul><li><a href="/facebook-ads-zambia">Facebook &amp; Instagram ads</a></li><li><a href="/google-ads-zambia">Google Ads</a></li><li><a href="/tiktok-ads-zambia">TikTok ads</a></li><li><a href="/website-design-zambia">Website design</a></li><li><a href="/facebook-ads-cost-zambia">Guide: Facebook ads budget</a></li><li><a href="/website-cost-zambia">Guide: website cost</a></li></ul></div>
+      <div><h5>Services</h5><ul><li><a href="/facebook-ads-zambia">Facebook &amp; Instagram ads</a></li><li><a href="/google-ads-zambia">Google Ads</a></li><li><a href="/tiktok-ads-zambia">TikTok ads</a></li><li><a href="/website-design-zambia">Website design</a></li><li><a href="/software-development-zambia">Custom software</a></li><li><a href="/ai-automation-zambia">AI automation</a></li><li><a href="/facebook-ads-cost-zambia">Guide: Facebook ads budget</a></li><li><a href="/website-cost-zambia">Guide: website cost</a></li></ul></div>
       <div><h5>Company</h5><ul><li><a href="/how-it-works">How it works</a></li><li><a href="/results">Projects</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li></ul></div>
       <div><h5>Start</h5><ul><li><a href="/apply">Apply to work with us</a></li><li><a href="${WA}" target="_blank" rel="noopener">WhatsApp +260 964 576 875</a></li></ul></div>
       <div><h5>Business identity</h5><ul><li>The Great Media Advertising Agency</li><li>Registered with PACRA · Zambia</li><li>Lusaka, Zambia · Est. 2023</li><li>Founder: Ephraim Banda</li></ul></div>
@@ -157,7 +160,7 @@ for (const f of fs.readdirSync(SRC)) {
   count++;
 }
 // sitemap.xml: every indexable page, with the date its source last changed
-const PRIO = { index: '1.0', services: '0.9', 'facebook-ads-zambia': '0.9', 'google-ads-zambia': '0.9', 'tiktok-ads-zambia': '0.8', 'website-design-zambia': '0.9', 'how-it-works': '0.8', results: '0.8', apply: '0.7', privacy: '0.2', terms: '0.2' };
+const PRIO = { index: '1.0', services: '0.9', 'facebook-ads-zambia': '0.9', 'google-ads-zambia': '0.9', 'tiktok-ads-zambia': '0.8', 'website-design-zambia': '0.9', 'software-development-zambia': '0.9', 'ai-automation-zambia': '0.9', 'how-it-works': '0.8', results: '0.8', apply: '0.7', privacy: '0.2', terms: '0.2' };
 const urls = [];
 for (const f of fs.readdirSync(SRC).sort()) {
   if (!f.endsWith('.html')) continue;

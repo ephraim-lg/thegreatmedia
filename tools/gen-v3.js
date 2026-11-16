@@ -66,13 +66,13 @@ const end = `
 </section>`;
 
 // ───────────────────────── HOME ─────────────────────────
-const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Business Systems & AI Agency in Lusaka, Zambia', desc: 'We help businesses scale with Meta ads, custom-built systems and AI. More customers, faster replies and less chasing. Advertising agency in Lusaka, Zambia. Apply to work with us.', })} -->
+const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Systems & AI Agency in Lusaka', desc: 'We help businesses scale with Meta ads, custom-built systems and AI. More customers, faster replies and less chasing. Advertising agency in Lusaka, Zambia. Apply to work with us.', })} -->
 
 <section class="x-hero" id="hero">
   <div class="x-wrap">
     <h1 class="rv"><span>More customers.</span><span>${it('Less chasing.')}</span></h1>
     <div class="x-hero-foot rv rv-d1">
-      <p class="x-lede">We help ambitious businesses scale with <b>Meta ads</b>, <b>custom-built systems</b> and <b>AI</b> that answers every enquiry in seconds. Based in Lusaka, working across Zambia and beyond.</p>
+      <p class="x-lede">The Great Media is an advertising agency in Lusaka, Zambia. We help ambitious businesses scale with <b>Meta ads</b>, <b>custom-built systems</b> and <b>AI</b> that answers every enquiry in seconds.</p>
       <div class="x-hero-cta" data-hero-cta>
         <a class="x-btn" href="/apply" data-place="hero">${CTA} <i>→</i></a>
         <a class="x-text" href="/results">See our projects</a>
@@ -104,8 +104,8 @@ const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Bu
     </div>
     <div class="x-svcs">
       <a class="x-svc rv" href="/facebook-ads-zambia"><span class="n">01</span><h3>Meta ads</h3><div><p>Facebook and Instagram campaigns built to bring you people who are ready to buy. Not likes. Not empty clicks.</p><ul><li>Strategy and an offer people want</li><li>Ads that stop the scroll, tested every week</li><li>Every kwacha tracked from click to sale</li></ul></div><span class="ar">→</span></a>
-      <a class="x-svc rv" href="/website-design-zambia"><span class="n">02</span><h3>Systems</h3><div><p>Websites, online stores, booking and payment flows, and full software. Built for your business, so nothing depends on memory or a spreadsheet.</p><ul><li>Websites and stores that sell</li><li>Registration, booking and payments</li><li>Custom software, like SchoolFlow and Sitolo</li></ul></div><span class="ar">→</span></a>
-      <a class="x-svc rv" href="/how-it-works"><span class="n">03</span><h3>AI</h3><div><p>AI assistants that reply to every enquiry in seconds, ask the right questions and hand you buyers who are ready to talk.</p><ul><li>Instant replies, day and night</li><li>Leads qualified before they reach you</li><li>Follow-up that never forgets</li></ul></div><span class="ar">→</span></a>
+      <a class="x-svc rv" href="/software-development-zambia"><span class="n">02</span><h3>Systems</h3><div><p>Websites, online stores, booking and payment flows, and full software. Built for your business, so nothing depends on memory or a spreadsheet.</p><ul><li>Websites and stores that sell</li><li>Registration, booking and payments</li><li>Custom software, like SchoolFlow and Sitolo</li></ul></div><span class="ar">→</span></a>
+      <a class="x-svc rv" href="/ai-automation-zambia"><span class="n">03</span><h3>AI</h3><div><p>AI assistants that reply to every enquiry in seconds, ask the right questions and hand you buyers who are ready to talk.</p><ul><li>Instant replies, day and night</li><li>Leads qualified before they reach you</li><li>Follow-up that never forgets</li></ul></div><span class="ar">→</span></a>
     </div>
   </div>
 </section>
@@ -191,7 +191,7 @@ ${end}
 `;
 
 // ───────────────────────── WORK ─────────────────────────
-const work = `<!--meta ${JSON.stringify({ title: 'Our Work: Websites, Software & Ad Results | The Great Media, Zambia', desc: `${WORK.length} live websites, apps and systems built by The Great Media in Zambia, plus client results from Meta ads: K100,000+ in sales for Cutrite Windows & Glass and 50+ orders in two months for Janice Wigs.`, crumb: 'Our work' })} -->
+const work = `<!--meta ${JSON.stringify({ title: 'Projects: Websites, Software & Ad Results in Zambia | The Great Media', desc: `${WORK.length} live websites, apps and systems built by The Great Media in Zambia, plus client results from Meta ads: K100,000+ in sales for Cutrite Windows & Glass and 50+ orders in two months for Janice Wigs.`, crumb: 'Projects', jsonld: { '@context': 'https://schema.org', '@type': 'ItemList', name: 'Projects by The Great Media', itemListElement: WORK.map((w, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'CreativeWork', name: w[3].replace(/&amp;/g, '&'), description: w[4].replace(/&amp;/g, '&'), url: w[5], creator: { '@id': 'https://thegreatmediazm.com/#org' } } })) } })} -->
 
 <section class="x-hero" style="padding-bottom:clamp(36px,5vw,70px)">
   <div class="x-wrap">
