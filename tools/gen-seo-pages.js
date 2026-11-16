@@ -19,110 +19,127 @@ const GUIDES = [
   ['website-cost-zambia', 'How much does a website cost in Zambia?'],
 ];
 
-const related = (skip) => `
-<section class="s-paper pad-sm">
-  <div class="container">
-    <div class="section-head"><span class="eyebrow rv">More from The Great Media</span><h2 class="rv rv-d1">Everything connects into one system.</h2></div>
-    <div class="svc-grid three">
-      ${SERVICES.filter(s => s[0] !== skip).map(([slug, name, d], i) => `<a class="svc rv${i ? ' rv-d' + i : ''}" href="/${slug}"><h3>${name}</h3><p>${d}</p><span class="link">Learn more ${arrow}</span></a>`).join('\n      ')}
+const it = (t) => `<span class="x-it">${t}</span>`;
+const em2it = (h) => h.replace(/<em>([\s\S]*?)<\/em>/g, (_, t) => it(t));
+const band = (words) => `<div class="x-band" aria-hidden="true"><div class="x-band-track">${[...words, ...words, ...words, ...words].map((w, i) => `<span${i % 2 ? ' class="x-it"' : ''}>${w}</span>`).join('')}</div></div>`;
+const shot = (slug, cls = '') => `<div class="x-shotf ${cls}"><img src="/img/work/${slug}-desktop.webp" alt="" loading="lazy" width="1200" height="750"></div>`;
+const phone = (slug) => `<div class="x-phonef"><img src="/img/work/${slug}-mobile.webp" alt="" loading="lazy"></div>`;
+// One visual per service: real screenshots where we have them, flat mock-ups for the ad platforms.
+const STAGE = {
+  shots: (a, b, c) => `<div class="x-stage shots rv">${shot(a, 's1')}${shot(b, 's2')}${phone(c)}</div>`,
+  meta: () => `<div class="x-stage trio rv" aria-hidden="true">
+      <div class="m-col"><span class="m-step">1 · The ad</span><div class="m-card m-ad"><div class="m-head"><i></i><div><b>Your business</b><small>Sponsored</small></div></div><div class="m-img"></div><p>New aluminium windows, fitted in 7 days.</p><em>Send WhatsApp message</em></div></div>
+      <div class="m-col"><span class="m-step">2 · The enquiry</span><div class="m-card m-chat"><span>Hi, I saw your advert. How much for 3 sliding windows?</span><span class="me">Hello! Happy to help. What sizes do you need, and where are you?</span><span>Woodlands. I can send measurements.</span><small>Answered in under a minute</small></div></div>
+      <div class="m-col"><span class="m-step">3 · The sale</span><div class="m-card m-sale"><b>Quote accepted</b><ul><li><span>Site visit</span><i>Done</i></li><li><span>Quote sent</span><i>Done</i></li><li><span>Follow-up</span><i>Done</i></li><li><span>Deposit paid</span><i class="ok">Paid</i></li></ul><small>Traced back to the ad that started it</small></div></div>
+    </div>`,
+  search: () => `<div class="x-stage solo rv" aria-hidden="true">
+      <div class="m-card m-search"><div class="m-bar"><i></i>solar installers in lusaka</div><div class="m-res top"><small><b>Sponsored</b> · yourbusiness.co.zm</small><h4>Solar Installation in Lusaka | Free Site Visit</h4><p>Home and business solar, installed by certified technicians. Call or WhatsApp for a quote today.</p><em>Call now</em><em>WhatsApp</em></div><div class="m-res"><small>competitor.com</small><h4>Another business further down the page</h4><p></p></div><div class="m-res"><small>directory.com</small><h4>A directory listing</h4><p></p></div></div>
+    </div>`,
+  tiktok: () => `<div class="x-stage trio rv" aria-hidden="true">
+      <div class="m-col"><span class="m-step">1 · The video</span><div class="m-vid"><b>Stop scrolling if you own a salon</b><i>▶</i><small>Sponsored</small></div></div>
+      <div class="m-col"><span class="m-step">2 · The enquiry</span><div class="m-card m-chat"><span>Saw your TikTok. Is the lace wig still available?</span><span class="me">Yes! Which length would you like, and where should we deliver?</span><span>18 inch. Kabulonga.</span><small>Answered in under a minute</small></div></div>
+      <div class="m-col"><span class="m-step">3 · The order</span><div class="m-card m-sale"><b>Order confirmed</b><ul><li><span>Product chosen</span><i>Done</i></li><li><span>Delivery details</span><i>Done</i></li><li><span>Payment</span><i class="ok">Paid</i></li></ul><small>Traced back to the video that started it</small></div></div>
+    </div>`,
+  ai: () => `<div class="x-stage duo rv"><div class="m-card m-chat big" aria-hidden="true"><span>Hi, do you do roofing in Chilanga?</span><span class="me">Hello! Yes, we cover Chilanga. Is this a new roof or a repair, and roughly how big is the house?</span><span>Repair. 3 bedrooms. It leaks when it rains.</span><span class="me">Understood. I can book a free inspection. Would Thursday morning or Saturday suit you?</span><small>Every reply sent in seconds, at any hour</small></div>${shot('betrworkr', 's2')}</div>`,
+};
+
+const others = (skip) => `
+<section class="x-sec" style="padding-top:0">
+  <div class="x-wrap">
+    <div class="x-split"><h2 class="x-h2 rv">It all works ${it('together.')}</h2><span></span></div>
+    <div class="x-svcs slim">
+      ${SERVICES.filter(s => s[0] !== skip).map(([slug, name, d]) => `<a class="x-svc rv" href="/${slug}"><span class="n"></span><h3>${name}</h3><div><p>${d}</p></div><span class="ar">→</span></a>`).join('\n      ')}
     </div>
-    <p class="mt-lg rv">Guides: ${GUIDES.map(([s, t]) => `<a class="link" href="/${s}">${t}</a>`).join(' &nbsp;·&nbsp; ')}</p>
+    <p class="rv" style="margin-top:28px;color:var(--text-dim)">Guides: ${GUIDES.map(([s, t]) => `<a class="x-text" style="font-size:1rem" href="/${s}">${t}</a>`).join(' &nbsp;&nbsp; ')}</p>
   </div>
 </section>`;
+const related = others;
 
 const finalCta = (h, p) => `
-<section class="final s-dark">
-  <div class="bg" aria-hidden="true"><img src="/img/art/cta-ripple.webp" alt="" loading="lazy"></div>
-  <div class="container">
-    <span class="eyebrow rv" style="justify-content:center">Next step</span>
-    <h2 class="rv rv-d1">${h}</h2>
-    <p class="lead rv rv-d2" style="text-align:center">${p}</p>
-    <p class="rv rv-d3"><a class="btn btn-primary btn-lg" href="/apply" data-place="final">Apply to Work With Us ${arrow}</a></p>
-    <p class="cta-note rv rv-d4">Takes about 4 minutes to apply. We reply on WhatsApp within a few hours, every working day. <span data-slots-line></span></p>
+<section class="x-sec x-night x-end">
+  <div class="x-wrap">
+    <h2 class="rv">${em2it(h)}</h2>
+    <div class="x-end-foot rv rv-d1">
+      <a class="x-btn acc" href="/apply" data-place="final">Apply to Work With Us <i>→</i></a>
+      <p>${p} <span data-slots-line></span></p>
+    </div>
   </div>
 </section>`;
 
-const faq = (items) => `<div class="faq rv">
+const faq = (items) => `<div class="x-faq faq rv">
       ${items.map(([q, a]) => `<details><summary>${q}<i>+</i></summary><div class="a">${a}</div></details>`).join('\n      ')}
     </div>`;
 
 function service(p) {
-  const meta = { title: p.title, desc: p.desc, crumb: p.crumb, parent: ['Services', '/services'], jsonld: { '@context': 'https://schema.org', '@type': 'Service', name: p.schemaName, serviceType: p.schemaName, description: p.desc, areaServed: { '@type': 'Country', name: 'Zambia' }, provider: { '@id': 'https://thegreatmediazm.com/#org' }, url: `https://thegreatmediazm.com/${p.slug}`, ...(p.offer ? { offers: p.offer } : {}) } };
+  const meta = { title: p.title, desc: p.desc, crumb: p.crumb, parent: ['Services', '/services'], jsonld: { '@context': 'https://schema.org', '@type': 'Service', name: p.schemaName, serviceType: p.schemaName, description: p.desc, areaServed: { '@type': 'Country', name: 'Zambia' }, provider: { '@id': 'https://thegreatmediazm.com/#org' }, url: `https://thegreatmediazm.com/${p.slug}` } };
   return `<!--meta ${JSON.stringify(meta)} -->
 
-<section class="page-hero s-dark">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="container">
-    <span class="eyebrow rv">${p.eyebrow}</span>
-    <h1 class="rv rv-d1" style="max-width:19ch">${p.h1}</h1>
-    <p class="lead rv rv-d2" style="max-width:56ch">${p.lead}</p>
-    <div class="cta-row rv rv-d3" data-hero-cta>
-      <a class="btn btn-primary btn-lg" href="${p.applyHref || '/apply'}" data-place="hero">${p.cta || 'Apply to Work With Us'} ${arrow}</a>
-      <a class="btn btn-ghost btn-lg" href="{{WA}}" target="_blank" rel="noopener">Ask on WhatsApp</a>
-    </div>
-    <p class="cta-note rv rv-d4">${p.note}</p>
-  </div>
-</section>
-
-<section class="s-paper pad">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow rv">What you get</span>
-      <h2 class="rv rv-d1">${p.incH2}</h2>
-      <p class="lead rv rv-d2">${p.incLead}</p>
-    </div>
-    <ul class="checks rv">
-      ${p.includes.map(([t, s]) => `<li>${check}<span>${t}<small>${s}</small></span></li>`).join('\n      ')}
-    </ul>
-  </div>
-</section>
-
-<section class="s-dark pad">
-  <div class="container">
-    <div class="grid-2">
-      <div>
-        <span class="eyebrow rv">${p.whyEyebrow}</span>
-        <h2 class="rv rv-d1">${p.whyH2}</h2>
-        ${p.whyBody.map(t => `<p class="rv rv-d2 muted">${t}</p>`).join('\n        ')}
-      </div>
-      <div>
-        <ol class="num-list rv rv-d2">
-          ${p.steps.map((t, i) => `<li><b>0${i + 1}</b><span>${t}</span></li>`).join('\n          ')}
-        </ol>
+<section class="x-hero sub">
+  <div class="x-wrap">
+    <h1 class="rv">${em2it(p.h1)}</h1>
+    <div class="x-hero-foot rv rv-d1">
+      <p class="x-lede">${p.lead}</p>
+      <div class="x-hero-cta" data-hero-cta>
+        <a class="x-btn" href="${p.applyHref || '/apply'}" data-place="hero">${p.cta || 'Apply to Work With Us'} <i>→</i></a>
+        <a class="x-text" href="{{WA}}" target="_blank" rel="noopener">Ask on WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="s-paper pad-sm">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow rv">Proof</span>
-      <h2 class="rv rv-d1">${p.proofH2}</h2>
-    </div>
-    <div class="grid-2">
-      ${p.proof.map(([q, who, sub, ini], i) => `<div class="quote rv${i ? ' rv-d1' : ''}"><p>${q}</p><div class="who"><i>${ini}</i><span><b>${who}</b>${sub}</span></div></div>`).join('\n      ')}
-    </div>
-    <p class="mt-lg rv"><a class="link" href="/results">See all results and case studies ${arrow}</a></p>
+<section style="padding-bottom:clamp(64px,8vw,120px)">
+  <div class="x-wrap">
+    ${p.stage}
   </div>
 </section>
 
-<section class="s-dark pad-sm">
-  <div class="container narrow">
-    <span class="eyebrow rv">Cost</span>
-    <h2 class="rv rv-d1">${p.costH2}</h2>
-    ${p.cost.map(t => `<p class="rv rv-d2 muted" style="max-width:66ch">${t}</p>`).join('\n    ')}
-    <p class="rv rv-d3"><a class="link" href="/apply">Apply to work with us ${arrow}</a></p>
+${band(p.band)}
+
+<section class="x-sec">
+  <div class="x-wrap">
+    <div class="x-split"><h2 class="x-h2 rv">${p.incH2}</h2><p class="x-lede rv rv-d1">${p.incLead}</p></div>
+    <ol class="x-gets">
+      ${p.includes.map(([t, s]) => `<li class="rv"><b>${t}</b><span>${s}</span></li>`).join('\n      ')}
+    </ol>
   </div>
 </section>
 
-<section class="s-paper pad">
-  <div class="container narrow">
-    <div class="section-head"><span class="eyebrow rv">Questions</span><h2 class="rv rv-d1">${p.faqH2}</h2></div>
+<section class="x-sec x-night">
+  <div class="x-wrap">
+    <p class="x-state rv">${p.whyH2}</p>
+    <div class="x-two">
+      <div>${p.whyBody.map(t => `<p class="rv">${t}</p>`).join('')}</div>
+      <ol class="x-run rv rv-d1">
+        ${p.steps.map((t) => `<li><div>${t}</div></li>`).join('\n        ')}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="x-sec">
+  <div class="x-wrap">
+    <div class="x-split"><h2 class="x-h2 rv">${p.proofH2}</h2><span></span></div>
+    <div class="x-quotes">
+      ${p.proof.map(([q, who, sub], i) => `<figure class="rv${i ? ' rv-d1' : ''}"><blockquote>${q}</blockquote><figcaption><b>${who}</b>${sub}</figcaption></figure>`).join('\n      ')}
+    </div>
+    <p class="rv" style="margin-top:36px"><a class="x-text" href="/results">See all our projects and results</a></p>
+  </div>
+</section>
+
+<section class="x-sec x-offer-sec">
+  <div class="x-wrap x-offer">
+    <h2 class="x-h2 rv">${p.costH2}</h2>
+    <div>${p.cost.map(t => `<p class="x-lede rv" style="color:var(--night);margin-bottom:18px">${t.replace(/class="link"/g, 'style="text-decoration:underline;font-weight:700"')}</p>`).join('')}<a class="x-btn dark rv" style="margin-top:14px" href="${p.applyHref || '/apply'}" data-place="cost">${p.cta || 'Apply to Work With Us'} <i>→</i></a></div>
+  </div>
+</section>
+
+<section class="x-sec">
+  <div class="x-wrap">
+    <div class="x-split"><h2 class="x-h2 rv">${p.faqH2}</h2><span></span></div>
     ${faq(p.faq)}
   </div>
 </section>
-${related(p.slug)}
+${others(p.slug)}
 ${finalCta(p.finalH, p.finalP)}
 `;
 }
@@ -131,35 +148,37 @@ function guide(p) {
   const meta = { title: p.title, desc: p.desc, crumb: p.crumb, parent: ['Guides', '/services#guides'], jsonld: { '@context': 'https://schema.org', '@type': 'Article', headline: p.h1.replace(/&amp;/g, '&'), description: p.desc, datePublished: p.date, dateModified: p.date, author: { '@type': 'Person', name: 'Ephraim Banda', url: 'https://thegreatmediazm.com/about' }, publisher: { '@id': 'https://thegreatmediazm.com/#org' }, mainEntityOfPage: `https://thegreatmediazm.com/${p.slug}` } };
   return `<!--meta ${JSON.stringify(meta)} -->
 
-<section class="page-hero s-dark">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="container narrow">
-    <span class="eyebrow rv">Guide · Zambia</span>
-    <h1 class="rv rv-d1" style="max-width:20ch">${p.h1}</h1>
-    <p class="lead rv rv-d2" style="max-width:60ch">${p.lead}</p>
-    <p class="cta-note rv rv-d3">By Ephraim Banda, founder of The Great Media · Lusaka · Updated ${p.dateText}</p>
-  </div>
-</section>
-
-<section class="s-paper pad-sm">
-  <div class="container narrow prose">
-    <div class="answer rv"><b>The short answer</b><p>${p.short}</p></div>
-${p.body}
-    <div class="prose-cta rv">
-      <h3>${p.ctaH}</h3>
-      <p>${p.ctaP}</p>
-      <a class="btn btn-primary" href="${p.applyHref || '/apply'}" data-place="guide">${p.ctaBtn} ${arrow}</a>
+<section class="x-hero sub">
+  <div class="x-wrap">
+    <h1 class="rv">${p.h1}</h1>
+    <div class="x-hero-foot rv rv-d1">
+      <p class="x-lede">${p.lead}</p>
+      <p class="x-by">By Ephraim Banda, founder of The Great Media<br>Updated ${p.dateText}</p>
     </div>
   </div>
 </section>
 
-<section class="s-paper pad-sm" style="padding-top:0">
-  <div class="container narrow">
-    <div class="section-head"><span class="eyebrow rv">Questions</span><h2 class="rv rv-d1">Quick answers</h2></div>
+<section style="padding-bottom:clamp(84px,11vw,168px)">
+  <div class="x-wrap x-article">
+    <aside class="x-answer rv"><b>The short answer</b><p>${p.short}</p></aside>
+    <div class="prose">
+${p.body}
+      <div class="prose-cta rv">
+        <h3>${p.ctaH}</h3>
+        <p>${p.ctaP}</p>
+        <a class="x-btn" href="${p.applyHref || '/apply'}" data-place="guide">${p.ctaBtn} <i>→</i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="x-sec" style="padding-top:0">
+  <div class="x-wrap">
+    <div class="x-split"><h2 class="x-h2 rv">Quick ${it('answers.')}</h2><span></span></div>
     ${faq(p.faq)}
   </div>
 </section>
-${related('')}
+${others('')}
 ${finalCta(p.finalH, p.finalP)}
 `;
 }
@@ -171,6 +190,7 @@ const relay = ['"Professional, fast and delivers. Our website has been bringing 
 const pages = {};
 
 pages['facebook-ads-zambia'] = service({
+  stage: STAGE.meta(), band: ['Facebook ads','Instagram ads','Enquiries','Follow-up','Sales'],
   slug: 'facebook-ads-zambia', crumb: 'Facebook & Instagram ads', schemaName: 'Facebook and Instagram advertising management',
   title: 'Facebook & Instagram Ads Agency in Zambia | The Great Media',
   desc: 'Facebook and Instagram ads management for Zambian businesses. We plan, build and run your campaigns, landing page and WhatsApp follow-up as one system. Based in Lusaka.',
@@ -204,10 +224,11 @@ pages['facebook-ads-zambia'] = service({
     ['How fast will I see results?', 'Campaigns go live within 21 working days of getting access. Enquiries usually start in the first days after launch, and the first month is about finding which audience, offer and creative work best. We ask for a 90-day commitment so there is time to optimise.'],
     ['Do you also run Instagram ads?', 'Yes. Facebook and Instagram run from the same Meta Ads Manager, so your campaigns appear on both, as well as Messenger and WhatsApp click-to-chat ads.'],
   ],
-  finalH: 'Want Facebook ads that pay for themselves?', finalP: 'Tell us what you sell, what a customer is worth and how you handle enquiries today. If there is a fit, we will show you exactly what we would build.',
+  finalH: 'Want ads that <em>pay back?</em>', finalP: 'Tell us what you sell, what a customer is worth and how you handle enquiries today. If there is a fit, we will show you exactly what we would build.',
 });
 
 pages['google-ads-zambia'] = service({
+  stage: STAGE.search(), band: ['Google Ads','Search','Calls','Enquiries','Sales'],
   slug: 'google-ads-zambia', crumb: 'Google Ads', schemaName: 'Google Ads management',
   title: 'Google Ads Agency in Zambia | Search Ads Management | The Great Media',
   desc: 'Google Ads management in Zambia. Appear when customers search for what you sell, send them to a page built to convert, and track every enquiry to a sale. Lusaka-based agency.',
@@ -240,10 +261,11 @@ pages['google-ads-zambia'] = service({
     ['How long before Google Ads bring enquiries?', 'Search ads can bring enquiries from the first week, because the people clicking are already looking. The first month is spent cutting wasted searches and improving cost per enquiry.'],
     ['Do I need a website for Google Ads?', 'You need a page to send people to. If your current site is slow or unclear, we build a landing page for the campaign as part of the work.'],
   ],
-  finalH: 'Want to be the first result your customers see?', finalP: 'Tell us what you sell and where. We will check the search demand and show you what we would build.',
+  finalH: 'Be the first result they <em>see.</em>', finalP: 'Tell us what you sell and where. We will check the search demand and show you what we would build.',
 });
 
 pages['ai-automation-zambia'] = service({
+  stage: STAGE.ai(), band: ['AI assistants','Instant replies','Qualified leads','Follow-up'],
   slug: 'ai-automation-zambia', crumb: 'AI automation', schemaName: 'AI automation and AI assistants for business',
   title: 'AI Automation for Businesses in Zambia | The Great Media',
   desc: 'AI automation for Zambian businesses. AI assistants that reply to enquiries in seconds, qualify leads, answer common questions and follow up, built around how your business works. Lusaka-based agency.',
@@ -276,10 +298,11 @@ pages['ai-automation-zambia'] = service({
     ['Do I need new software or a new phone number?', 'Usually not. We build around the channels your customers already use and tell you clearly if anything new is needed.'],
     ['Does AI replace my staff?', 'No. It takes the repetitive first replies off their hands so they can spend time on customers who are ready to buy.'],
   ],
-  finalH: 'Want every enquiry answered in seconds?', finalP: 'Tell us how enquiries reach you today. If there is a fit, we will show you exactly what we would build.',
+  finalH: 'Every enquiry answered in <em>seconds.</em>', finalP: 'Tell us how enquiries reach you today. If there is a fit, we will show you exactly what we would build.',
 });
 
 pages['software-development-zambia'] = service({
+  stage: STAGE.shots('schoolflow','gymflow','sitolo'), band: ['Web apps','Payments','Records','Bookings','Reports'],
   slug: 'software-development-zambia', crumb: 'Custom software', schemaName: 'Custom software and web application development',
   title: 'Custom Software Development in Zambia | The Great Media',
   desc: 'Custom software development in Lusaka, Zambia. Web apps and business systems for schools, gyms and shops: payments, records and bookings in one place.',
@@ -312,10 +335,11 @@ pages['software-development-zambia'] = service({
     ['Who owns the software?', 'That is agreed in writing before the build starts, so there are no surprises later.'],
     ['Can you improve a system we already have?', 'Often, yes. We look at what you have first and tell you honestly whether to improve it or replace it.'],
   ],
-  finalH: 'Ready to replace the spreadsheet?', finalP: 'Tell us how your business runs today and where it slows down. If there is a fit, we will show you exactly what we would build.',
+  finalH: 'Ready to replace the <em>spreadsheet?</em>', finalP: 'Tell us how your business runs today and where it slows down. If there is a fit, we will show you exactly what we would build.',
 });
 
 pages['tiktok-ads-zambia'] = service({
+  stage: STAGE.tiktok(), band: ['TikTok ads','Video','Enquiries','Orders'],
   slug: 'tiktok-ads-zambia', crumb: 'TikTok ads', schemaName: 'TikTok advertising management',
   title: 'TikTok Ads Agency in Zambia | The Great Media',
   desc: 'TikTok ads management for Zambian businesses. Short video ads, built and run for you, connected to WhatsApp follow-up and tracking so views turn into enquiries and sales.',
@@ -347,10 +371,11 @@ pages['tiktok-ads-zambia'] = service({
     ['Is TikTok only for young people?', 'The audience is younger on average than Facebook\'s, though people of all ages use it. If your buyers are mostly older decision-makers, we may recommend Facebook or Google first.'],
     ['Do I need lots of followers?', 'No. Paid ads reach people who do not follow you. A new account can run ads from day one.'],
   ],
-  finalH: 'Want your product in front of Zambia on TikTok?', finalP: 'Tell us what you sell. If TikTok is the right place for it, we will show you what we would build.',
+  finalH: 'Put your product in front of <em>Zambia.</em>', finalP: 'Tell us what you sell. If TikTok is the right place for it, we will show you what we would build.',
 });
 
 pages['website-design-zambia'] = service({
+  stage: STAGE.shots('plumbit','kwendura','claudine'), band: ['Websites','Online stores','Landing pages','Bookings'],
   slug: 'website-design-zambia', crumb: 'Website design', schemaName: 'Website design and development',
   title: 'Website Design in Zambia | The Great Media',
   desc: 'Website design in Lusaka, Zambia. Fast, mobile-first websites, landing pages and online stores built to turn visitors into enquiries. Fixed quote before work starts.',
@@ -385,7 +410,7 @@ pages['website-design-zambia'] = service({
     ['Can you redesign my existing website?', 'Yes. We often rebuild sites that look fine but do not bring enquiries. We keep what works, fix the structure and make the next step obvious.'],
     ['Do I need to pay monthly?', 'No. A website is a one-off project. Your only ongoing costs are your domain and hosting, which you own.'],
   ],
-  finalH: 'Need a website that brings in business?', finalP: 'Tell us about your business and what the site needs to do. You will get an honest answer and a fixed quote.',
+  finalH: 'A website that brings in <em>business.</em>', finalP: 'Tell us about your business and what the site needs to do. You will get an honest answer and a fixed quote.',
 });
 
 pages['facebook-ads-cost-zambia'] = guide({
@@ -440,7 +465,7 @@ pages['facebook-ads-cost-zambia'] = guide({
     ['Is ad spend included in an agency fee?', 'With us, no. Ad spend is paid by you directly to Meta so you own the account and can see every kwacha. Our management fee is separate and fixed in your proposal.'],
     ['Are Instagram ads priced differently?', 'Instagram and Facebook ads are bought from the same Meta account and budget. Meta shows your ad on whichever placement gets the best result for the money.'],
   ],
-  finalH: 'Ready to make ad spend predictable?', finalP: 'Tell us your numbers. If there is a fit, we will show you exactly what we would build and what it would cost.',
+  finalH: 'Make your ad spend <em>predictable.</em>', finalP: 'Tell us your numbers. If there is a fit, we will show you exactly what we would build and what it would cost.',
 });
 
 pages['website-cost-zambia'] = guide({
@@ -491,78 +516,70 @@ pages['website-cost-zambia'] = guide({
     ['How long does a website take?', 'Most business websites take two to four weeks once the content is ready. Stores and larger sites take longer.'],
     ['Do I pay monthly for a website?', 'Not for the build. With us it is a one-off project. Your ongoing costs are the domain and hosting.'],
   ],
-  finalH: 'Need a website that brings in business?', finalP: 'Tell us about your business and what the site needs to do. You will get an honest answer and a fixed quote.',
+  finalH: 'A website that brings in <em>business.</em>', finalP: 'Tell us about your business and what the site needs to do. You will get an honest answer and a fixed quote.',
 });
 
 // Services hub
 pages['services'] = `<!--meta ${JSON.stringify({ title: 'Digital Marketing, Software & AI Services in Zambia | The Great Media', desc: 'Advertising agency in Lusaka, Zambia. Meta ads, Google Ads, TikTok ads, website design, custom software and AI automation, from one team that turns enquiries into paying customers.', crumb: 'Services' })} -->
 
-<section class="page-hero s-dark">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="container">
-    <span class="eyebrow rv">Services · Lusaka, Zambia</span>
-    <h1 class="rv rv-d1" style="max-width:18ch">Digital marketing services for Zambian businesses.</h1>
-    <p class="lead rv rv-d2" style="max-width:56ch">The Great Media is an advertising and digital marketing agency in Lusaka. We run the ads, build the pages and set up the follow-up, and connect them so advertising turns into paying customers.</p>
-    <div class="cta-row rv rv-d3" data-hero-cta>
-      <a class="btn btn-primary btn-lg" href="/apply" data-place="hero">Apply to Work With Us ${arrow}</a>
-      <a class="btn btn-ghost btn-lg" href="/results">See our work</a>
-    </div>
-  </div>
-</section>
-
-<section class="s-paper pad">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow rv">What we do</span>
-      <h2 class="rv rv-d1">Six services. One team.</h2>
-      <p class="lead rv rv-d2">You can start with the part you need most. They work best together.</p>
-    </div>
-    <div class="svc-grid three">
-      ${SERVICES.map(([slug, name, d], i) => `<a class="svc rv${i ? ' rv-d' + i : ''}" href="/${slug}"><h3>${name}</h3><p>${d}</p><span class="link">Learn more ${arrow}</span></a>`).join('\n      ')}
-    </div>
-  </div>
-</section>
-
-<section class="s-dark pad">
-  <div class="container">
-    <div class="grid-2">
-      <div>
-        <span class="eyebrow rv">Also included</span>
-        <h2 class="rv rv-d1">The parts most agencies leave out.</h2>
-        <p class="rv rv-d2 muted">Ads bring attention. These are what turn it into money.</p>
-        <p class="rv rv-d3"><a class="link" href="/how-it-works">See how the full system works ${arrow}</a></p>
+<section class="x-hero sub">
+  <div class="x-wrap">
+    <h1 class="rv">Everything it takes to ${it('grow.')}</h1>
+    <div class="x-hero-foot rv rv-d1">
+      <p class="x-lede">The Great Media is an advertising and digital marketing agency in Lusaka, Zambia. We bring the customers in, build what handles them and automate the work that slows you down.</p>
+      <div class="x-hero-cta" data-hero-cta>
+        <a class="x-btn" href="/apply" data-place="hero">Apply to Work With Us <i>→</i></a>
+        <a class="x-text" href="/results">See our projects</a>
       </div>
-      <ul class="checks rv rv-d2" style="grid-template-columns:1fr">
-        <li>${check}<span>Landing pages and lead capture<small>One page, one job: turn a click into an enquiry.</small></span></li>
-        <li>${check}<span>Lead qualification<small>Questions that separate serious buyers from browsers.</small></span></li>
-        <li>${check}<span>WhatsApp follow-up systems<small>Templates, reminders and a routine so no quote is forgotten.</small></span></li>
-        <li>${check}<span>Tracking and weekly reporting<small>From the ad to the sale, in plain English.</small></span></li>
-      </ul>
     </div>
   </div>
 </section>
 
-<section class="s-paper pad-sm" id="guides">
-  <div class="container">
-    <div class="section-head"><span class="eyebrow rv">Guides</span><h2 class="rv rv-d1">Straight answers on cost.</h2></div>
-    <div class="svc-grid two">
-      ${GUIDES.map(([s, t], i) => `<a class="svc rv${i ? ' rv-d1' : ''}" href="/${s}"><h3>${t}</h3><p>${i ? 'What drives the price, the ongoing costs, and what to ask a web designer.' : 'Ad spend, management fees and how to set a budget from your own numbers.'}</p><span class="link">Read the guide ${arrow}</span></a>`).join('\n      ')}
+${band(['Meta ads', 'Google Ads', 'TikTok ads', 'Websites', 'Software', 'AI'])}
+
+<section class="x-sec">
+  <div class="x-wrap">
+    <div class="x-split"><h2 class="x-h2 rv">Six services. ${it('One team.')}</h2><p class="x-lede rv rv-d1">Start with the part you need most. They work best together.</p></div>
+    <div class="x-svcs">
+      ${SERVICES.map(([slug, name, d], i) => `<a class="x-svc rv" href="/${slug}"><span class="n">0${i + 1}</span><h3>${name}</h3><div><p>${d}</p></div><span class="ar">→</span></a>`).join('\n      ')}
     </div>
   </div>
 </section>
 
-<section class="s-paper pad-sm" style="padding-top:0">
-  <div class="container narrow">
-    <div class="section-head"><span class="eyebrow rv">Questions</span><h2 class="rv rv-d1">About our services.</h2></div>
+<section class="x-sec x-night">
+  <div class="x-wrap">
+    <p class="x-state rv">The parts most agencies ${it('leave out.')}</p>
+    <div class="x-cols four">
+      <div class="x-col rv"><b>1</b><h3>Landing pages</h3><p>One page, one job: turn a click into an enquiry.</p></div>
+      <div class="x-col rv rv-d1"><b>2</b><h3>Lead qualification</h3><p>Questions that separate serious buyers from browsers.</p></div>
+      <div class="x-col rv rv-d2"><b>3</b><h3>Follow-up</h3><p>Templates, reminders and a routine, so no quote is forgotten.</p></div>
+      <div class="x-col rv rv-d3"><b>4</b><h3>Tracking</h3><p>From the ad to the sale, reported weekly in plain English.</p></div>
+    </div>
+    <p class="x-after rv"><a class="x-text" href="/how-it-works" style="font:inherit">See how it all fits together</a></p>
+  </div>
+</section>
+
+<section class="x-sec" id="guides">
+  <div class="x-wrap">
+    <div class="x-split"><h2 class="x-h2 rv">Straight answers on ${it('cost.')}</h2><span></span></div>
+    <div class="x-svcs slim">
+      ${GUIDES.map(([s, t]) => `<a class="x-svc rv" href="/${s}"><span class="n"></span><h3>${t}</h3><div><p>${s.startsWith('website') ? 'What drives the price, the ongoing costs, and what to ask a web designer.' : 'Ad spend, management fees and how to set a budget from your own numbers.'}</p></div><span class="ar">→</span></a>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<section class="x-sec" style="padding-top:0">
+  <div class="x-wrap">
+    <div class="x-split"><h2 class="x-h2 rv">About our ${it('services.')}</h2><span></span></div>
     ${faq([
-      ['What does a digital marketing agency in Zambia do?', 'It plans and runs your online advertising and the assets around it. At The Great Media that means Facebook, Instagram, TikTok and Google ads, websites and landing pages, WhatsApp follow-up systems, and tracking that shows which advert produced which sale.'],
-      ['Which service should I start with?', 'If you have no clear place to send customers, start with a website or landing page. If you have one and need more enquiries, start with Facebook and Instagram ads. We recommend the right starting point in the diagnostic.'],
+      ['What does a digital marketing agency in Zambia do?', 'It plans and runs your online advertising and the assets around it. At The Great Media that means Facebook, Instagram, TikTok and Google ads, websites and software, AI assistants, follow-up systems, and tracking that shows which advert produced which sale.'],
+      ['Which service should I start with?', 'If you have no clear place to send customers, start with a website or landing page. If you have one and need more enquiries, start with Meta ads. If enquiries arrive but go unanswered, start with AI and follow-up. We recommend the right starting point when we review your application.'],
       ['Do you work with businesses outside Lusaka?', 'Yes. We are based in Lusaka and work with businesses across Zambia, including the Copperbelt, and with clients outside the country. Everything is run remotely with weekly reporting.'],
       ['How much do your services cost?', 'It depends on what your business needs, so we do not publish a price list. If your application is accepted, you get a clear proposal with a fixed fee.'],
     ])}
   </div>
 </section>
-${finalCta('If your business can profit from more customers, let\'s look at the numbers.', 'Tell us about your offer, your acquisition process and your growth target. If there is a fit, we will show you exactly what we would build.')}
+${finalCta('Let\'s find your next <em>customers.</em>', 'The application takes about 4 minutes. We review every one and reply on WhatsApp within a few hours, every working day.')}
 `;
 
 for (const [slug, html] of Object.entries(pages)) fs.writeFileSync(path.join(OUT, slug + '.html'), html);

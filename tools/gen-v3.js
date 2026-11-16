@@ -35,6 +35,7 @@ const tabs = `<div class="x-tabs rv" role="group" aria-label="Filter projects">
 const reel = (slugs, rev) => `<div class="x-row${rev ? ' rev' : ''}">${[...slugs, ...slugs].map((x) => `<img src="/img/work/${x}-desktop.webp" alt="" loading="eager" width="1200" height="750">`).join('')}</div>`;
 const CLIENTS = ['Cutrite Windows &amp; Glass', 'Janice Wigs', 'Intercompany Relay', 'Plumbit', 'KCM Kopala ICR', 'Kwendura', 'Swt. Hair', 'CLAZ Marathon', 'Ziva School', 'Hair by Claudine', 'Mental Health Half Marathon'];
 const marquee = `<div class="marquee"><div class="marquee-track" aria-hidden="true">${[...CLIENTS, ...CLIENTS].map((c) => `<span>${c}</span>`).join('')}</div></div>`;
+const band = (words) => `<div class="x-band" aria-hidden="true"><div class="x-band-track">${[...words, ...words, ...words, ...words].map((w, i) => `<span${i % 2 ? ' class="x-it"' : ''}>${w}</span>`).join('')}</div></div>`;
 const it = (t) => `<span class="x-it">${t}</span>`;
 
 const results = `<div class="x-results">
@@ -85,16 +86,18 @@ const home = `<!--meta ${JSON.stringify({ title: 'The Great Media | Meta Ads, Sy
   ${marquee}
 </section>
 
-<section id="results">
+<section id="results" style="padding-bottom:clamp(64px,8vw,120px)">
   <div class="x-wrap">
     <div class="x-facts rv">
-      <div class="x-fact"><b>K100,000+</b><span>in sales for one client, from Meta ads we managed</span></div>
-      <div class="x-fact"><b>50+</b><span>orders in two months for a beauty brand</span></div>
-      <div class="x-fact"><b>${WORK.length}</b><span>websites, apps and systems designed and built</span></div>
-      <div class="x-fact"><b>21</b><span>working days from access to launch</span></div>
+      <div class="x-fact"><b><span data-count="100000" data-prefix="K" data-suffix="+">K100,000+</span></b><span>in sales for one client, from Meta ads we managed</span></div>
+      <div class="x-fact"><b><span data-count="50" data-suffix="+">50+</span></b><span>orders in two months for a beauty brand</span></div>
+      <div class="x-fact"><b><span data-count="${WORK.length}">${WORK.length}</span></b><span>websites, apps and systems designed and built</span></div>
+      <div class="x-fact"><b><span data-count="21">21</span></b><span>working days from access to launch</span></div>
     </div>
   </div>
 </section>
+
+${band(['Meta ads', 'Systems', 'AI', 'Customers'])}
 
 <section class="x-sec" id="services">
   <div class="x-wrap">
