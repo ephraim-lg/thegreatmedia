@@ -1,6 +1,5 @@
 # Old information architecture → new funnel (301 keeps any SEO equity)
-/services        /how-it-works   301
-/services.html   /how-it-works   301
+/services.html   /services       301
 /work            /results        301
 /work.html       /results        301
 /admin           /leads          301

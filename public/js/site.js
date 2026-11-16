@@ -40,11 +40,15 @@ window.TGM_CAPACITY = { max: 3, month: 'October 2026', left: 2 };
 
 document.addEventListener('DOMContentLoaded', function () {
   var cap = window.TGM_CAPACITY;
-  var line = cap.left > 0
+  /* If nobody has updated the month, never show last month's count as if it were current. */
+  var nowLabel = new Date().toLocaleString('en-GB', { month: 'long', year: 'numeric' });
+  var stale = cap.month !== nowLabel;
+  var line = stale ? 'We onboard a maximum of ' + cap.max + ' new systems a month so every build gets done properly.'
+    : cap.left > 0
     ? 'We onboard a maximum of ' + cap.max + ' new systems a month so every build gets done properly. ' + cap.month + ': ' + cap.left + ' of ' + cap.max + ' build slots still open.'
     : 'We onboard a maximum of ' + cap.max + ' new systems a month. ' + cap.month + ' is full — apply now for the next slot.';
   document.querySelectorAll('[data-slots-line]').forEach(function (el) { el.textContent = line; });
-  document.querySelectorAll('[data-slots-pill]').forEach(function (el) { el.textContent = cap.left > 0 ? cap.left + ' build slot' + (cap.left === 1 ? '' : 's') + ' left for ' + cap.month : cap.month + ' is full — next slot on application'; });
+  document.querySelectorAll('[data-slots-pill]').forEach(function (el) { el.textContent = stale ? 'Maximum ' + cap.max + ' new systems a month' : cap.left > 0 ? cap.left + ' build slot' + (cap.left === 1 ? '' : 's') + ' left for ' + cap.month : cap.month + ' is full — next slot on application'; });
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
